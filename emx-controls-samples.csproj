@@ -10,8 +10,7 @@
 
 
   <ItemGroup>
-    <PackageReference Include="Eremex.Avalonia.Controls"  Version="0.0.41-demo"/>
-    <PackageReference Include="Avalonia.Svg.Skia" Version="11.0.0.276"/>
+    <PackageReference Include="Eremex.Avalonia.Controls"  Version="0.0.57-demo"/>
 
     <PackageReference Include="Avalonia" Version="11.0.7" />
     <PackageReference Include="Avalonia.Desktop" Version="11.0.7" />
