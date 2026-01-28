@@ -1,0 +1,186 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:sys="using:System"
+        xmlns:mxe="clr-namespace:Eremex.AvaloniaUI.Controls.Editors;assembly=Eremex.Avalonia.Controls"
+		xmlns:mxev="clr-namespace:Eremex.AvaloniaUI.Controls.Editors.Visuals;assembly=Eremex.Avalonia.Controls"
+        xmlns:media="clr-namespace:Avalonia.Media;assembly=Avalonia.Visuals">
+
+    <FontFamily x:Key="ContentControlThemeFontFamily">fonts:Inter#Inter, $Default</FontFamily>
+    <x:Double x:Key="ControlContentThemeFontSize">12</x:Double>
+
+	<mxev:SplitterThicknessConverter x:Key="EditorSplitterConverter"/>
+
+	<StreamGeometry x:Key="ChevronUpIcon">M0.146447 4.35355C0.341709 4.54882 0.658291 4.54882 0.853553 4.35355L4 1.20711L7.14645 4.35355C7.34171 4.54882 7.65829 4.54882 7.85355 4.35355C8.04882 4.15829 8.04882 3.84171 7.85355 3.64645L4.35355 0.146447C4.15829 -0.0488157 3.84171 -0.0488157 3.64645 0.146447L0.146447 3.64645C-0.0488155 3.84171 -0.0488155 4.15829 0.146447 4.35355Z</StreamGeometry>
+	<StreamGeometry x:Key="ChevronDownIcon">M0.146447 0.646447C0.341709 0.451184 0.658291 0.451184 0.853553 0.646447L4 3.79289L7.14645 0.646447C7.34171 0.451184 7.65829 0.451184 7.85355 0.646447C8.04882 0.841709 8.04882 1.15829 7.85355 1.35355L4.35355 4.85355C4.15829 5.04882 3.84171 5.04882 3.64645 4.85355L0.146447 1.35355C-0.0488155 1.15829 -0.0488155 0.841709 0.146447 0.646447Z</StreamGeometry>
+	<StreamGeometry x:Key="ClearCrossIcon">M0.146447 0.146447C0.341709 -0.0488155 0.658291 -0.0488155 0.853553 0.146447L4 3.29289L7.14645 0.146447C7.34171 -0.0488155 7.65829 -0.0488155 7.85355 0.146447C8.04882 0.341709 8.04882 0.658291 7.85355 0.853553L4.70711 4L7.85355 7.14645C8.04882 7.34171 8.04882 7.65829 7.85355 7.85355C7.65829 8.04882 7.34171 8.04882 7.14645 7.85355L4 4.70711L0.853553 7.85355C0.658291 8.04882 0.341709 8.04882 0.146447 7.85355C-0.0488155 7.65829 -0.0488155 7.34171 0.146447 7.14645L3.29289 4L0.146447 0.853553C-0.0488155 0.658291 -0.0488155 0.341709 0.146447 0.146447Z</StreamGeometry>
+
+	<StreamGeometry x:Key="ChevronRightIcon">M0.313073 0.146447C0.508335 -0.0488155 0.824917 -0.0488155 1.02018 0.146447L5.52018 4.64645C5.71544 4.84171 5.71544 5.15829 5.52018 5.35355L1.02018 9.85355C0.824917 10.0488 0.508335 10.0488 0.313073 9.85355C0.11781 9.65829 0.11781 9.34171 0.313073 9.14645L4.45952 5L0.313073 0.853553C0.11781 0.658291 0.11781 0.341709 0.313073 0.146447Z</StreamGeometry>
+	<StreamGeometry x:Key="ChevronLeftIcon">M5.3535555 0.14644688c-0.195262 -0.1952625 -0.511843 -0.1952625 -0.7071031 0L0.14645249 4.6464499c-0.19527 0.19526 -0.19527 0.51184 0 0.7071 l 4.49999991 4.5c0.1952601 0.1952501 0.5118411 0.1952501 0.7071031 0 0.195263 -0.19526 0.195263 -0.51184 0 -0.7071l-4.146443 -4.14645 4.146443 -4.14644702c0.195263 -0.195262 0.195263 -0.511844 0 -0.707106Z</StreamGeometry>
+    <StreamGeometry x:Key="ExpanderChevronUpIcon">M9.85355 5.35355C10.0488 5.15829 10.0488 4.84171 9.85355 4.64645L5.35355 0.146447C5.15829 -0.0488156 4.84171 -0.0488156 4.64645 0.146447L0.146446 4.64645C-0.0488155 4.84171 -0.0488155 5.15829 0.146446 5.35355C0.341709 5.54882 0.658291 5.54882 0.853554 5.35355L5 1.20711L9.14645 5.35355C9.34171 5.54882 9.65829 5.54882 9.85355 5.35355Z</StreamGeometry>
+    <StreamGeometry x:Key="ExpanderChevronDownIcon">M9.85355 0.646447C10.0488 0.841709 10.0488 1.15829 9.85355 1.35355L5.35355 5.85355C5.15829 6.04882 4.84171 6.04882 4.64645 5.85355L0.146446 1.35355C-0.0488158 1.15829 -0.0488157 0.841708 0.146446 0.646446C0.341709 0.451184 0.658291 0.451184 0.853554 0.646446L5 4.79289L9.14645 0.646447C9.34171 0.451184 9.65829 0.451184 9.85355 0.646447Z</StreamGeometry>
+
+	<StreamGeometry x:Key="CheckBoxCheckIcon">M9.70636 0.154788C10.0351 0.406808 10.0973 0.877594 9.84524 1.20632L4.09524 8.70632C3.95426 8.8902 3.7362 8.9986 3.50449 8.99998C3.27278 9.00136 3.05345 8.89556 2.91029 8.71336L0.160293 5.21336C-0.0956169 4.88765 -0.0390379 4.41616 0.286666 4.16025C0.61237 3.90434 1.08386 3.96092 1.33977 4.28663L3.49276 7.0268L8.65483 0.293669C8.90685 -0.0350537 9.37763 -0.097233 9.70636 0.154788Z</StreamGeometry>
+    <StreamGeometry x:Key="ColorEditorCheckIcon">M10.5103 0.257916C9.99677 -0.135544 9.27462 -0.0693278 8.84038 0.391706L8.75738 0.489364L3.98683 6.7111L2.23292 4.47768C1.83296 3.96895 1.11664 3.85432 0.581536 4.1935L0.477043 4.26772C-0.0652726 4.69425 -0.159045 5.47994 0.267081 6.02261L3.0171 9.52264L3.11183 9.63007C3.34684 9.86722 3.6695 10.0021 4.00734 10.0002C4.39335 9.99778 4.75682 9.81726 4.99172 9.51093L10.7418 2.01086L10.814 1.90539C11.1468 1.3662 11.024 0.651736 10.5103 0.257916Z</StreamGeometry>
+    <RectangleGeometry x:Key="CheckBoxIndeterminateIcon" Rect="0,0,6,6" RadiusX="0.5" RadiusY="0.5"/>
+
+	<StreamGeometry x:Key="AddColorIcon">M6.16699 0C6.44313 0 6.66699 0.223858 6.66699 0.5V5H11.167C11.4431 5 11.667 5.22386 11.667 5.5C11.667 5.77614 11.4431 6 11.167 6H6.66699V10.5C6.66699 10.7761 6.44313 11 6.16699 11C5.89085 11 5.66699 10.7761 5.66699 10.5V6H1.16699C0.89085 6 0.666992 5.77614 0.666992 5.5C0.666992 5.22386 0.89085 5 1.16699 5H5.66699V0.5C5.66699 0.223858 5.89085 0 6.16699 0Z</StreamGeometry>
+
+	<x:Double x:Key="EditorFontSize">12</x:Double>
+    <!--EditorFontSize will be removed. Do not use!-->
+	<x:Double x:Key="EditorErrorFontSize">11</x:Double>
+    <x:Double x:Key="ToolTipContentThemeFontSize">12</x:Double>
+	<CornerRadius x:Key="EditorCornerRadius">6</CornerRadius>
+	<x:Double x:Key="EditorMinHeight">28</x:Double>
+	<x:Double x:Key="EditorMinWidth">16</x:Double>
+	<Thickness x:Key="EditorBorderThickness">1</Thickness>
+	<Thickness x:Key="EditorBottomBorderThickness">0,0,0,1</Thickness>
+	<Thickness x:Key="EditorTopBorderThickness">0,1,0,0</Thickness>
+	<Thickness x:Key="TextEditorPadding">8,4,8,4</Thickness>
+	<Thickness x:Key="ErrorTextPresenterMargin">4,4,4,4</Thickness>
+	<x:Double x:Key="ErrorIconSize">16</x:Double>
+
+    <Thickness x:Key="EditorIconButtonPadding">6,4</Thickness>
+    <Thickness x:Key="SpinEditorIncreaseButtonPadding">0,0,0,1</Thickness>
+    <Thickness x:Key="SpinEditorDecreaseButtonPadding">0,1,0,0</Thickness>
+
+	<CornerRadius x:Key="PopupCornerRadius">8</CornerRadius>
+	<CornerRadius x:Key="PopupHeaderCornerRadius">8,8,0,0</CornerRadius>
+	<CornerRadius x:Key="PopupFooterCornerRadius">0,0,8,8</CornerRadius>
+	<Thickness x:Key="CheckBoxPadding">4,0,0,0</Thickness>
+	<Thickness x:Key="CheckEditorPadding">8,0,8,0</Thickness>
+    <Thickness x:Key="CheckEditorImageMargin">2,0</Thickness>
+	<CornerRadius x:Key="CheckEditorGlyphCornerRadius">3</CornerRadius>
+
+    <Thickness x:Key="ToggleSwitchPadding">6,0,0,0</Thickness>
+    <Thickness x:Key="ToggleSwitchTopHeaderMargin">0,0,0,6</Thickness>
+    <x:Double x:Key="ToggleSwitchThemeMinWidth">30</x:Double>
+    <CornerRadius x:Key="ToggleSwitchSelectorCornerRadius">40</CornerRadius>
+    <x:Double x:Key="ToggleSwitchSelectorWidth">26</x:Double>
+    <x:Double x:Key="ToggleSwitchSelectorHeight">16</x:Double>
+    <x:Double x:Key="ToggleSwitchKnobsContainerWidth">12</x:Double>
+    <x:Double x:Key="ToggleSwitchKnobSize">10</x:Double>
+    <Thickness x:Key="ToggleSwitchKnobCanvasMargin">2,0,0,0</Thickness>
+
+	<Thickness x:Key="RadioButtonPadding">4,0,0,0</Thickness>
+	<x:Double x:Key="RadioButtonEllipseBorderThickness">1</x:Double>
+	<x:Double x:Key="SliderThumbSize">22</x:Double>
+
+    <x:Double x:Key="PathIconHeight">20</x:Double>
+
+    <x:Double x:Key="ExpanderChevronButtonSize">28</x:Double>
+    <Thickness x:Key="ExpanderChevronButtonMargin">0,0,6,0</Thickness>
+    <Thickness x:Key="ExpanderHeaderPadding">0,0,6,0</Thickness>
+    <Thickness x:Key="ExpanderContentPadding">6</Thickness>
+    <x:Double x:Key="ExpanderMinHeight">28</x:Double>
+    <x:Double x:Key="ExpanderMinWidth">100</x:Double>
+    <Thickness x:Key="ExpanderHeaderBorderThickness">0</Thickness>
+
+    <x:Double x:Key="ScrollBarButtonArrowIconFontSize">8</x:Double>
+    <Thickness x:Key="MenuItemChevronMargin">6,0,0,0</Thickness>
+    <x:Double x:Key="MenuFlyoutThemeMinHeight">26</x:Double>
+    <x:Double x:Key="FlyoutThemeMaxWidth">456</x:Double>
+    <Thickness x:Key="MenuFlyoutPresenterBorderThemeThickness">1</Thickness>
+    <Thickness x:Key="MenuFlyoutPresenterThemePadding">2</Thickness>
+    <x:Double x:Key="MenuFlyoutSubItemPopupHorizontalOffset">0</x:Double>
+    <Thickness x:Key="MenuFlyoutSeparatorThemePadding">4,2</Thickness>
+    <x:Double x:Key="MenuFlyoutSeparatorThemeHeight">1</x:Double>
+
+    <Thickness x:Key="ListBoxPadding">0</Thickness>
+	<Thickness x:Key="ListBoxItemMargin">0</Thickness>
+    <Thickness x:Key="ListBoxItemBackgroundMargin">2,1</Thickness>
+	<Thickness x:Key="ListBoxItemPadding">8,0,8,0</Thickness>
+	<x:Double x:Key="ListBoxItemMinHeight">28</x:Double>
+	<Thickness x:Key="ComboBoxEmptyValueSelectorPadding">0</Thickness>
+	<Thickness x:Key="ComboBoxSelectAllCheckerPadding">10,0,10,0</Thickness>
+	<x:Double x:Key="EnumItemTemplateElementSpacing">8</x:Double>
+
+	<Thickness x:Key="SegmentedEditorPadding">1</Thickness>
+	<Thickness x:Key="SegmentedEditorSecondaryPadding">3,3,3,3</Thickness>
+	<CornerRadius x:Key="SegmentedEditorItemCornerRadius">4</CornerRadius>
+
+	<x:Double x:Key="PopupDropDownMaxHeight">534</x:Double>
+	<x:Double x:Key="PopupDropDownMinHeight">20</x:Double>
+
+	<x:Double x:Key="InactiveButtonPlaceholderWidth">28</x:Double>
+
+	<x:Double x:Key="ButtonMinWidth">28</x:Double>
+
+	<Thickness x:Key="ToolTipPadding">5,6,6,6</Thickness>
+    <CornerRadius x:Key="ToolTipCornerRadius">4</CornerRadius>
+
+	<Thickness x:Key="FocusAdornerBorderThickness">1</Thickness>
+	<x:Double x:Key="FocusAdornerStrokeThickness">1</x:Double>
+	<Thickness x:Key="FocusAdornerCornerRadius">4</Thickness>
+
+    <Thickness x:Key="WindowNotificationManagerMargin">0,22,0,0</Thickness>
+    <Thickness x:Key="WindowNotificationManagerContentMargin">12</Thickness>
+    <Thickness x:Key="WindowNotificationManagerMessageMargin">0,0,12,0</Thickness>
+    <x:Double x:Key="WindowNotificationManagerMessageMaxHeight">80</x:Double>
+    <x:Double x:Key="WindowNotificationManagerContentSpacing">8</x:Double>
+    <x:Double x:Key="NotificationCardDefaultWidth">350</x:Double>
+    <x:Double x:Key="NotificationCardIndicatiorHeight">6</x:Double>
+    <x:Double x:Key="NotificationCardContentMinHeight">64</x:Double>
+    <Thickness x:Key="NotificationCardMargin">14,0,14,22</Thickness>
+
+	<DataTemplate x:Key="OpenPopupButtonPresenterTemplate" >
+		<Panel Width="{StaticResource InactiveButtonPlaceholderWidth}" HorizontalAlignment="Right">
+			<Path Fill="{DynamicResource Icons/Outline/Gray}"
+						VerticalAlignment="Center" HorizontalAlignment="Center"
+						Data="{StaticResource ChevronDownIcon}"/>
+		</Panel>
+	</DataTemplate>
+	<SolidColorBrush x:Key="HighlightedTextBlockBackgroundBrush" Color="{DynamicResource HighlightedTextBackgroundColor}"/>
+	<SolidColorBrush x:Key="HighlightedTextBlockForegroundBrush" Color="{DynamicResource HighlightedTextForegroundColor}"/>
+
+    <sys:Double x:Key="ColorIndicatorDefaultSize">16</sys:Double>
+    <CornerRadius x:Key="TransparentIndicatorColorCornerRadius">3,0,0,3</CornerRadius>
+    <CornerRadius x:Key="TransparentIndicatorCellularElementCornerRadius">0,3,3,0</CornerRadius>
+    
+    <DrawingBrush x:Key="ColorToggleButtonTransparencyBrush" TileMode="Tile" DestinationRect="0,0,8,8" Opacity="0.15">
+        <DrawingBrush.Drawing>
+            <DrawingGroup>
+                <GeometryDrawing Brush="White">
+                    <GeometryDrawing.Geometry>
+                        <RectangleGeometry Rect="0,0,8,8"/>
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+                <GeometryDrawing Brush="Black">
+                    <GeometryDrawing.Geometry>
+                        <GeometryGroup>
+                            <RectangleGeometry Rect="0,0,4,4"/>
+                            <RectangleGeometry Rect="4,4,4,4"/>
+                        </GeometryGroup>
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+            </DrawingGroup>
+        </DrawingBrush.Drawing>
+    </DrawingBrush>
+
+    <SolidColorBrush x:Key="ColorToggleButtonCheckedForeground" Color="White"/>
+
+    <ControlTheme x:Key="WindowBasedClassesTheme" TargetType="{x:Type Window}">
+        <Setter Property="Background" Value="{DynamicResource NativeWindowBackground}"/>
+        <Setter Property="TransparencyBackgroundFallback" Value="{DynamicResource NativeWindowBackground}" />
+        <Setter Property="TopLevel.SystemBarColor" Value="{DynamicResource NativeWindowBackground}"/>
+        <Setter Property="Foreground" Value="{DynamicResource SystemControlForegroundBaseHighBrush}"/>
+        <Setter Property="FontSize" Value="{DynamicResource ControlContentThemeFontSize}"/>
+        <Setter Property="FontFamily" Value="{DynamicResource ContentControlThemeFontFamily}" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Panel>
+                    <Border Name="PART_TransparencyFallback" IsHitTestVisible="False" />
+                    <Border Background="{TemplateBinding Background}" IsHitTestVisible="False" />
+                    <Panel Background="Transparent" Margin="{TemplateBinding WindowDecorationMargin}" />
+                    <VisualLayerManager>
+                        <ContentPresenter Name="PART_ContentPresenter"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                                          Content="{TemplateBinding Content}"
+                                          Margin="{TemplateBinding Padding}"
+                                          HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </VisualLayerManager>
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>

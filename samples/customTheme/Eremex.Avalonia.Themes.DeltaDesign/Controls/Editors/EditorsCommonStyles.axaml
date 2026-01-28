@@ -1,0 +1,75 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mxe="clr-namespace:Eremex.AvaloniaUI.Controls.Editors;assembly=Eremex.Avalonia.Controls"
+        xmlns:mxc="clr-namespace:Eremex.AvaloniaUI.Controls.Common;assembly=Eremex.Avalonia.Controls">
+
+    <Styles.Resources>
+        <SolidColorBrush x:Key="TransparentBrush" Color="Transparent"/>
+
+        <ControlTheme x:Key="{x:Type mxe:BaseEditor}" TargetType="mxe:BaseEditor">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="MinHeight" Value="{StaticResource EditorMinHeight}" />
+            <Setter Property="MinWidth" Value="{StaticResource EditorMinWidth}" />
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="Padding" Value="{StaticResource TextEditorPadding}" />
+
+            <Style Selector="^:activeMode">
+                <Setter Property="BorderBrush" Value="Transparent" />
+                <Setter Property="Foreground" Value="{DynamicResource EditorForeground}" />
+                <Setter Property="CornerRadius" Value="{StaticResource EditorCornerRadius}" />
+                <Setter Property="BorderThickness" Value="{StaticResource EditorBorderThickness}" />
+            </Style>
+        </ControlTheme>
+    </Styles.Resources>
+
+    <Style Selector=":is(mxe|TextEditor)[ActualErrorShowMode=Inplace][IsEnabled=true]:activeMode /template/ TextBox#PART_RealEditor /template/ TextPresenter#PART_TextPresenter">
+        <Setter Property="TextElement.Foreground" Value="{DynamicResource EditorForegroundOnError}"/>
+        <Setter Property="SelectionForegroundBrush" Value="{DynamicResource EditorSelectionBrushOnError}"/>
+    </Style>
+    <Style Selector=":is(mxe|TextEditor)[ActualErrorShowMode=Inplace][IsEnabled=true]:activeMode /template/ TextBox#PART_RealEditor /template/ ContentPresenter#PART_ReadOnlyContentContainer">
+        <Setter Property="Foreground" Value="{DynamicResource EditorForegroundOnError}"/>
+    </Style>
+    <Style Selector="mxe|CheckEditor[EditorMode=InplaceActive] CheckBox /template/ Grid#RootGrid,
+           mxe|CheckEditor[EditorMode=InplaceInactive] CheckBox /template/ Grid#RootGrid">
+        <Setter Property="Margin" Value="{StaticResource CheckEditorPadding}"/>
+    </Style>
+    <Style Selector=":is(mxe|TextEditor)[ActualErrorShowMode=Inplace]:activeMode /template/ TextBox#PART_RealEditor /template/ Image#PART_ErrorIndicator">
+        <Setter Property="IsVisible" Value="True"/>
+    </Style>
+    <Style Selector=":is(mxe|SpinEditor)[IsTextEditable=False][ActualErrorShowMode=Inplace]:activeMode /template/ TextBox#PART_RealEditor /template/ Image#PART_ErrorIndicator">
+        <Setter Property="IsVisible" Value="False"/>
+    </Style>
+    <Style Selector=":is(mxe|SpinEditor)[IsTextEditable=False]:activeMode /template/ TextBox#PART_RealEditor /template/ DockPanel#PART_InnerDockPanel">
+        <Setter Property="Cursor" Value="{x:Null}" />
+    </Style>
+
+    <Style Selector="mxe|DateEditor CalendarItem /template/ Border#PART_HeaderDecorationBorder">
+        <Setter Property="CornerRadius" Value="{StaticResource PopupHeaderCornerRadius}"/>
+    </Style>
+
+    <Style Selector=":is(mxe|PopupEditor):activeMode:no-shadow/template/mxc|ResizeablePopup Border#PopupBorder">
+        <Setter Property="BoxShadow">
+            <BoxShadows>none</BoxShadows>
+        </Setter>
+        <Setter Property="BorderBrush" Value="{DynamicResource PopupBorderBrush/NoShadow}" />
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="CornerRadius" Value="0" />
+    </Style>
+
+    <Style Selector="mxe|ComboBoxEditor:enumSelector ListBoxItem">
+        <Setter Property="ToolTip.Tip" Value="{Binding Converter={StaticResource InstanceToDescriptionConverter}}"/>
+    </Style>
+    <Style Selector="mxe|ComboBoxEditor[SelectionMode=Single]:enumSelector /template/ TextBox#PART_RealEditor /template/ ContentPresenter#PART_ReadOnlyContentContainer">
+        <Setter Property="ToolTip.Tip" Value="{Binding $parent[mxe:ComboBoxEditor].SelectedItem, Converter={StaticResource InstanceToDescriptionConverter}}"/>
+    </Style>
+    <Style Selector="mxe|ComboBoxEditor:focus-visible /template/ TextBox#PART_RealEditor /template/ Border#PART_BorderElement">
+        <Setter Property="BorderBrush" Value="{DynamicResource TransparentBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource ComboBoxEditorFocusedBackground}" />
+    </Style>
+    <Style Selector="mxe|ComboBoxEditor[SecondaryAppearance=true]:focus-visible /template/ TextBox#PART_RealEditor /template/ Border#PART_BorderElement">
+        <Setter Property="Background" Value="{DynamicResource ComboBoxEditorSecondaryFocusedBackground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource TransparentBrush}"/>
+    </Style>
+
+</Styles>

@@ -1,0 +1,86 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="using:System"
+                    xmlns:col="using:System.Collections"
+                    xmlns:mxe="clr-namespace:Eremex.AvaloniaUI.Controls.Editors;assembly=Eremex.Avalonia.Controls"
+                    xmlns:localization="clr-namespace:Eremex.AvaloniaUI.Controls.Localization;assembly=Eremex.Avalonia.Controls"
+                    xmlns:utils="clr-namespace:Eremex.AvaloniaUI.Controls.Utils;assembly=Eremex.Avalonia.Controls">
+
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <StackPanel>
+                <Border Background="{DynamicResource Fill/Neutral/Primary/Enabled}" Padding="10">
+                    <StackPanel Spacing="10">
+                        <mxe:DateEditor Width="180" DateTime="{x:Static sys:DateTime.Now}"/>
+                        <mxe:DateEditor EditorMode="InplaceInactive" Width="180" EditorValue="{x:Static sys:DateTime.Now}"/>
+                        <mxe:DateEditor IsEnabled="False" Width="180" DateTime="{x:Static sys:DateTime.Now}"/>
+                    </StackPanel>
+                </Border>
+                <Border Background="{DynamicResource Fill/Neutral/Secondary/Enabled}" Padding="10">
+                    <StackPanel Spacing="10">
+                        <mxe:DateEditor EditorMode="InplaceActive" Width="180" Classes="secondary" DateTime="{x:Static sys:DateTime.Now}"/>
+                        <mxe:DateEditor EditorMode="InplaceInactive" Width="180" Classes="secondary" EditorValue="{x:Static sys:DateTime.Now}"/>
+                        <mxe:DateEditor IsEnabled="False" Width="180" Classes="secondary" DateTime="{x:Static sys:DateTime.Now}"/>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </Border>
+    </Design.PreviewWith>
+
+    <sys:Double x:Key="DateEditorPopupWidth">256</sys:Double>
+
+    <ControlTheme x:Key="DateEditorClearButtonTheme" TargetType="Button" BasedOn="{StaticResource SetNullValuePopupButtonTheme}">
+        <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Foreground" Value="{DynamicResource ButtonWarningForeground}" />
+        </Style>
+        <Style Selector="^:pointerover, ^:focus">
+            <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Foreground" Value="{DynamicResource ButtonWarningForegroundPointerOver}" />
+            </Style>
+        </Style>
+        <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Foreground" Value="{DynamicResource ButtonWarningForegroundPressed}" />
+        </Style>
+        <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Foreground" Value="{DynamicResource ButtonWarningForegroundDisabled}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type mxe:DateEditor}" TargetType="mxe:DateEditor" BasedOn="{StaticResource {x:Type mxe:PopupEditor}}">
+        <Setter Property="PopupWidth" Value="{DynamicResource DateEditorPopupWidth}"/>
+        <Style Selector="^:activeMode">
+            <Setter Property="PopupFooterTemplate">
+                <ControlTemplate>
+                    <Grid Background="Transparent" x:Name="PART_PopupFooterRootElement">
+                        <Grid.IsVisible>
+                            <MultiBinding Converter="{x:Static BoolConverters.Or}">
+                                <Binding ElementName="PART_SetTodayButton" Path="IsVisible"/>
+                                <Binding ElementName="PART_NullValueButton" Path="IsVisible"/>
+                            </MultiBinding>
+                        </Grid.IsVisible>
+                        <Grid ColumnDefinitions="*, *" HorizontalAlignment="Center" Margin="0,5">
+                            <Button x:Name="PART_SetTodayButton"
+                                    Content="{x:Static localization:ControlsResources.ButtonContent_Today}"
+                                    Width="116" Theme="{StaticResource PopupFooterButtonTheme}"
+                                    IsVisible="{Binding $parent[mxe:PopupEditor].ShowToday}"
+                                    Command="{Binding $parent[mxe:PopupEditor].SetTodayCommand}"/>
+                            <Button x:Name="PART_NullValueButton" Theme="{StaticResource DateEditorClearButtonTheme}" Width="116" Grid.Column="1" Margin="0"/>
+                        </Grid>
+                    </Grid>
+                </ControlTemplate>
+            </Setter>
+
+            <Setter Property="PopupContent">
+                <Setter.Value>
+                    <Template>
+                        <mxe:CalendarControl BorderThickness="0" HorizontalAlignment="Center"
+                                             ReadOnly="{Binding $parent[mxe:DateEditor].ReadOnly}"
+                                             FirstDayOfWeek="{Binding $parent[mxe:DateEditor].FirstDayOfWeek}"
+                                             CornerRadius="{StaticResource PopupCornerRadius}"/>
+                    </Template>
+                </Setter.Value>
+            </Setter>
+
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

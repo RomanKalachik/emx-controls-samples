@@ -1,0 +1,371 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="using:System"
+                    xmlns:mxe="clr-namespace:Eremex.AvaloniaUI.Controls.Editors;assembly=Eremex.Avalonia.Controls"
+                    xmlns:mxev="clr-namespace:Eremex.AvaloniaUI.Controls.Editors.Visuals;assembly=Eremex.Avalonia.Controls"
+                    xmlns:localization="clr-namespace:Eremex.AvaloniaUI.Controls.Localization;assembly=Eremex.Avalonia.Controls"
+                    xmlns:utils="clr-namespace:Eremex.AvaloniaUI.Controls.Utils;assembly=Eremex.Avalonia.Controls">
+
+    <Design.PreviewWith>
+        <Border Padding="20" Background="{DynamicResource Fill/Neutral/Primary/Enabled}" Height="550">
+            <mxe:ColorEditor Color="Green" ColorsShowMode="StandardColors,CustomColors" ShowAlphaChannel="True" VerticalAlignment="Top"/>
+        </Border>
+    </Design.PreviewWith>
+
+    <sys:Double x:Key="ColorEditorWidth">314</sys:Double>
+    <sys:Double x:Key="ColorEditorSplitterHeight">1</sys:Double>
+    <sys:Double x:Key="ColorButtonDefaultSize">21</sys:Double>
+    <Thickness x:Key="ColorButtonMargin">2</Thickness>
+
+    <sys:Double x:Key="GradientColorsPanelFirstRowInterval">6</sys:Double>
+
+    <Thickness x:Key="ColorEditorHeaderMargin">8,0,0,0</Thickness>
+    <Thickness x:Key="ColorEditorHeaderSplitterMargin">2,0,2,0</Thickness>
+    <Thickness x:Key="ColorEditorDescriptionMargin">8,0,18,8</Thickness>
+    <Thickness x:Key="ColorEditorSelectorsMargin">6,0,0,8</Thickness>
+    <Thickness x:Key="ColorEditorPlatformColorSelectorMargin">0,2,0,0</Thickness>
+    <Thickness x:Key="ColorEditorSplitterMargin">2,0,2,8</Thickness>
+    <Thickness x:Key="ColorEditorThemeSelectorMargin">0,8,0,0</Thickness>
+
+    <CornerRadius x:Key="ColorPickerHeaderCornerRadius">6,6,0,0</CornerRadius>
+    <CornerRadius x:Key="ColorPickerFooterCornerRadius">0,0,6,6</CornerRadius>
+    <Thickness x:Key="ColorPickerFooterButtonsMargin">8</Thickness>
+
+    <CornerRadius x:Key="ColorToggleButtonIndicatorRadius">5</CornerRadius>
+
+    <mxev:ColorLocalizationConverter x:Key="ColorLocalizationConverter"/>
+
+    <DataTemplate x:Key="ColorEditorHeaderTemplate">
+        <Border CornerRadius="{StaticResource ColorPickerHeaderCornerRadius}"
+                Height="{StaticResource EditorMinHeight}"
+                Background="{DynamicResource ColorEditorHeaderBackground}"
+                BorderThickness="{StaticResource EditorBottomBorderThickness}"
+                BorderBrush="{DynamicResource ColorEditorHeaderBorderBrush}">
+            <Grid ColumnDefinitions="Auto, *, Auto">
+                <Button Name="PART_BackButton"
+                        Command="{Binding $parent[mxe:ColorEditor].ShowColorPickerCommand}"
+                        IsVisible="{Binding $parent[mxe:ColorEditor].IsColorPickerVisible}"
+                        Theme="{StaticResource EditorIconButtonBaseTheme}"
+                        Focusable="False">
+                    <Path Data="{StaticResource ChevronLeftIcon}"
+                          Fill="{Binding #PART_BackButton.Foreground}"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Center"/>
+                    <Button.CommandParameter>
+                        <sys:Boolean>False</sys:Boolean>
+                    </Button.CommandParameter>
+                </Button>
+                <TextBlock Text="{x:Static localization:ControlsResources.ColorPicker_HeaderText}"
+                           Margin="{StaticResource ColorEditorHeaderMargin}"
+                           Foreground="{DynamicResource ColorEditorPickerHeaderForeground}"
+                           VerticalAlignment="Center"
+                           FontWeight="Bold"
+                           Grid.Column="1"/>
+                <Button Name="PART_CloseButton"
+                        Grid.Column="2"
+                        IsVisible="{Binding $parent[mxe:ColorEditor].IsCloseButtonVisible}"
+                        Command="{Binding $parent[mxe:ColorEditor].CloseCommand}"
+                        Theme="{StaticResource EditorIconButtonBaseTheme}"
+                        Focusable="False">
+                    <Path Data="{StaticResource ClearCrossIcon}"
+                          Fill="{Binding #PART_CloseButton.Foreground}"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Center"/>
+                </Button>
+            </Grid>
+        </Border>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ColorEditorFooterTemplate">
+        <Border CornerRadius="{StaticResource ColorPickerFooterCornerRadius}"
+                        Background="{DynamicResource ColorEditorFooterBackground}"
+                        BorderThickness="{StaticResource EditorTopBorderThickness}"
+                        BorderBrush="{DynamicResource ColorEditorFooterBorderBrush}">
+            <Grid ColumnDefinitions="*, 8, *"
+                        Margin="{StaticResource ColorPickerFooterButtonsMargin}">
+                <Button x:Name="PART_ApplyButton"
+                        Content="{x:Static localization:ControlsResources.ButtonContent_Apply}"
+                        Classes="accent"
+                        Command="{Binding $parent[mxe:ColorEditor].ApplyCustomColorCommand}"
+                        HorizontalAlignment="Stretch"/>
+                <Button x:Name="PART_CancelButton"
+                        Grid.Column="2"
+                        Content="{x:Static localization:ControlsResources.ButtonContent_Cancel}"
+                        Command="{Binding $parent[mxe:ColorEditor].ShowColorPickerCommand}"
+                        HorizontalAlignment="Stretch"
+                        Classes="secondary">
+                    <Button.CommandParameter>
+                        <sys:Boolean>False</sys:Boolean>
+                    </Button.CommandParameter>
+                </Button>
+            </Grid>
+        </Border>
+    </DataTemplate>
+
+    <ControlTheme x:Key="ColorValuePresenterTheme" TargetType="ContentControl">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Name="PART_ColorValuePresenter"
+                        Background="{TemplateBinding Background}"
+                        ClipToBounds="True"
+                        BorderBrush="{DynamicResource PopupColorEditorColorIndicatorBorderBrush}"
+                        BorderThickness="{StaticResource EditorBorderThickness}"
+                        CornerRadius="{StaticResource CheckEditorGlyphCornerRadius}"
+                        Height="{StaticResource ColorIndicatorDefaultSize}"
+                        Width="{StaticResource ColorIndicatorDefaultSize}">
+                    <Grid ColumnDefinitions="*, *" IsVisible="{Binding $parent[Border].Background, Converter={mxev:TransparentColorToBoolConverter}}">
+                        <Border Background="{Binding $parent[Border].Background, Converter={mxev:BrushToNonTransparentBrushConverter}}"
+                                CornerRadius="{StaticResource TransparentIndicatorColorCornerRadius}"/>
+                        <Border Grid.Column="1" Background="{DynamicResource ColorToggleButtonTransparencyBrush}"
+                                CornerRadius="{StaticResource TransparentIndicatorCellularElementCornerRadius}"/>
+                    </Grid>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+    <!--More Colors Button-->
+    <ControlTheme x:Key="ColorEditorMoreColorsButtonTheme" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+        <Setter Property="Background" Value="{DynamicResource ColorEditorMoreColorsButtonBackground}"/>
+        <Setter Property="Foreground" Value="{DynamicResource ColorEditorMoreColorsButtonForeground}"/>
+        <Setter Property="Width" Value="{StaticResource ColorButtonDefaultSize}"/>
+        <Setter Property="Height" Value="{StaticResource ColorButtonDefaultSize}"/>
+        <Setter Property="Margin" Value="{StaticResource ColorButtonMargin}"/>
+        <Setter Property="Focusable" Value="False"/>
+        <Setter Property="Padding" Value="0"/>
+
+        <Style Selector="^ /template/ Border#PART_ButtonBorder,
+               ^:pointerover /template/ Border#PART_ButtonBorder,
+               ^:focus-visible /template/ Border#PART_ButtonBorder">
+            <Setter Property="BorderBrush" Value="{DynamicResource ColorEditorMoreColorsButtonBorderBrush}" />
+            <Setter Property="BorderThickness" Value="{StaticResource EditorBorderThickness}" />
+        </Style>
+
+        <Style Selector="^:pointerover /template/ Border#PART_BackgroundBorder">
+            <Setter Property="Background" Value="{DynamicResource ColorEditorMoreColorsButtonBackgroundPointerOver}" />
+        </Style>
+        <Style Selector="^:pressed /template/ Border#PART_BackgroundBorder">
+            <Setter Property="Background" Value="{DynamicResource ColorEditorMoreColorsButtonBackgroundPressed}" />
+        </Style>
+        <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Opacity" Value="0.8"/>
+        </Style>
+    </ControlTheme>
+
+    <!--Color Toggle Button-->
+    <ControlTheme x:Key="{x:Type mxev:ColorToggleButton}" TargetType="mxev:ColorToggleButton">
+        <Setter Property="CornerRadius" Value="{StaticResource EditorCornerRadius}"/>
+        <Setter Property="BorderThickness" Value="{StaticResource EditorBorderThickness}"/>
+        <Setter Property="Width" Value="{StaticResource ColorButtonDefaultSize}"/>
+        <Setter Property="Height" Value="{StaticResource ColorButtonDefaultSize}"/>
+        <Setter Property="Margin" Value="{StaticResource ColorButtonMargin}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource ColorEditorToggleButtonBorderBrush}"/>
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border x:Name="PART_ExternalBorder"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        Background="{TemplateBinding Background}">
+                    <Panel>
+                        <Border x:Name="PART_InternalIndicator"
+                                CornerRadius="{StaticResource ColorToggleButtonIndicatorRadius}">
+                            <Border ClipToBounds="True"
+                                    CornerRadius="{StaticResource ColorToggleButtonIndicatorRadius}">
+                                <Grid ColumnDefinitions="*, *" IsVisible="{TemplateBinding IsTransparentBackground}">
+                                    <Border Background="{TemplateBinding NonTransparentBackground}"/>
+                                    <Border Grid.Column="1" Background="{DynamicResource ColorToggleButtonTransparencyBrush}"/>
+                                </Grid>
+                            </Border>
+                        </Border>
+                        <Path x:Name="PART_CheckGlyph"
+                              Stretch="None"
+                              IsVisible="False"
+                              Fill="{DynamicResource ColorToggleButtonCheckedForeground}"
+                              Stroke="{Binding $parent[mxev:ColorToggleButton].BorderBrush}"
+                              Data="{StaticResource ColorEditorCheckIcon}"
+                              Width="11"
+                              Height="10"
+                              StrokeThickness="1"
+                              VerticalAlignment="Center"
+                              HorizontalAlignment="Center"/>
+                    </Panel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:pointerover, ^:checked">
+            <Style Selector="^ /template/ Border#PART_ExternalBorder">
+                <Setter Property="Background" Value="Transparent"/>
+            </Style>
+            <Style Selector="^ /template/ Border#PART_InternalIndicator">
+                <Setter Property="Margin" Value="{Binding BorderThickness, RelativeSource={RelativeSource TemplatedParent}}"/>
+                <Setter Property="Background" Value="{Binding Background, RelativeSource={RelativeSource TemplatedParent}}"/>
+            </Style>
+        </Style>
+        
+        <Style Selector="^:pointerover /template/ Border#PART_InternalIndicator">
+            <Setter Property="BorderBrush" Value="{DynamicResource ColorEditorToggleButtonBorderBrush}"/>
+            <Setter Property="BorderThickness" Value="{StaticResource EditorBorderThickness}"/>
+        </Style>
+
+        <Style Selector="^:checked /template/ Path#PART_CheckGlyph">
+            <Setter Property="IsVisible" Value="True"/>
+        </Style>
+    </ControlTheme>
+
+    <!--ColorEditor-->
+    <ControlTheme x:Key="{x:Type mxe:ColorEditor}" TargetType="mxe:ColorEditor">
+        <Setter Property="Background" Value="{DynamicResource ColorEditorBackground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ColorEditorBorderBrush}" />
+        <Setter Property="BorderThickness" Value="{StaticResource EditorBorderThickness}" />
+        <Setter Property="CornerRadius" Value="{StaticResource EditorCornerRadius}" />
+        <Setter Property="Width" Value="{StaticResource ColorEditorWidth}"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Name="PART_RootBorder"
+	                    BorderBrush="{TemplateBinding BorderBrush}"
+	                    BorderThickness="{TemplateBinding BorderThickness}"
+	                    CornerRadius="{TemplateBinding CornerRadius}"
+	                    Background="{TemplateBinding Background}">
+                    <Grid RowDefinitions="Auto, Auto, *, Auto">
+                        <ContentPresenter ContentTemplate="{StaticResource ColorEditorHeaderTemplate}"/>
+                        <Grid RowDefinitions="Auto, *" Grid.Row="1">
+                            <Grid.IsVisible>
+                                <MultiBinding Converter="{x:Static BoolConverters.And}">
+                                    <Binding RelativeSource="{RelativeSource TemplatedParent}"
+                                             Path="ColorsShowMode"
+                                             Converter="{mxev:ColorsShowModeToBoolConverter}"
+                                             ConverterParameter="PlatformColors"/>
+                                    <Binding RelativeSource="{RelativeSource TemplatedParent}"
+                                             Path="IsColorPickerVisible"
+                                             Converter="{x:Static BoolConverters.Not}"	/>
+                                </MultiBinding>
+                            </Grid.IsVisible>
+                            <Grid ColumnDefinitions="*, *" Margin="{DynamicResource ColorEditorHeaderMargin}">
+                                <RadioButton x:Name="PaletteChecker" GroupName="Group1"
+                                             Content="{x:Static localization:ControlsResources.ColorEditor_Selector_PaletteChecker}"
+                                             IsChecked="True" />
+                                <RadioButton x:Name="PlatformChecker" GroupName="Group1" Grid.Column="1"
+                                             Content="{x:Static localization:ControlsResources.ColorEditor_Selector_PlatformChecker}" />
+                            </Grid>
+                            <Border Grid.Row="1" Background="{DynamicResource ColorEditorSplitterBrush}"
+                                    Margin="{DynamicResource ColorEditorHeaderSplitterMargin}"
+                                    Height="{DynamicResource ColorEditorSplitterHeight}"
+                                    HorizontalAlignment="Stretch" />
+                        </Grid>
+                        <StackPanel Margin="{DynamicResource ColorEditorThemeSelectorMargin}" Grid.Row="2">
+                            <StackPanel.IsVisible>
+                                <MultiBinding Converter="{x:Static BoolConverters.And}">
+                                    <Binding ElementName="PaletteChecker"
+                                             Path="IsChecked"/>
+                                    <Binding RelativeSource="{RelativeSource TemplatedParent}"
+                                             Path="IsColorPickerVisible"
+                                             Converter="{x:Static BoolConverters.Not}"	/>
+                                </MultiBinding>
+                            </StackPanel.IsVisible>
+                            <StackPanel x:Name="PART_PaletteGradientColorsPanel"
+                                        Margin="{DynamicResource ColorEditorSelectorsMargin}"
+                                        HorizontalAlignment="Stretch" >
+                                <Border Height="{StaticResource GradientColorsPanelFirstRowInterval}"/>
+                            </StackPanel>
+
+                            <Grid RowDefinitions="Auto, Auto, *"
+                                        IsVisible="{Binding $parent[mxe:ColorEditor].ColorsShowMode, Converter={mxev:ColorsShowModeToBoolConverter}, ConverterParameter=StandardColors}">
+                                <Border Background="{DynamicResource ColorEditorSplitterBrush}"
+                                        Margin="{DynamicResource ColorEditorSplitterMargin}"
+                                        Height="{DynamicResource ColorEditorSplitterHeight}"
+                                        HorizontalAlignment="Stretch" />
+                                <TextBlock Margin="{DynamicResource ColorEditorDescriptionMargin}"
+                                           Grid.Row="1"
+                                           Text="{x:Static localization:ControlsResources.ColorEditor_StandardColors_Header}"
+                                           Foreground="{DynamicResource ColorEditorStandardColorsHeaderForeground}"
+                                           FontWeight="Bold" />
+                                <StackPanel x:Name="PART_StandardColorsPanel"
+                                            Grid.Row="2"
+                                            Orientation="Horizontal"
+                                            Margin="{DynamicResource ColorEditorSelectorsMargin}"
+                                            HorizontalAlignment="Stretch" />
+                            </Grid>
+                            <Grid RowDefinitions="Auto, Auto, *"
+                                  IsVisible="{Binding $parent[mxe:ColorEditor].ColorsShowMode, Converter={mxev:ColorsShowModeToBoolConverter}, ConverterParameter=CustomColors}">
+                                <Border Background="{DynamicResource ColorEditorSplitterBrush}"
+                                        Margin="{DynamicResource ColorEditorSplitterMargin}"
+                                        Height="{DynamicResource ColorEditorSplitterHeight}"
+                                        HorizontalAlignment="Stretch" />
+                                <TextBlock Margin="{DynamicResource ColorEditorDescriptionMargin}"
+                                           Grid.Row="1"
+                                           Text="{x:Static localization:ControlsResources.ColorEditor_MoreColors_Header}"
+                                           Foreground="{DynamicResource ColorEditorMoreColorsHeaderForeground}"
+                                           FontWeight="Bold" />
+                                <WrapPanel x:Name="PART_CustomColorsPanel"
+                                           Grid.Row="2"
+                                           Orientation="Horizontal"
+                                           Margin="{DynamicResource ColorEditorSelectorsMargin}"
+                                           HorizontalAlignment="Stretch">
+                                    <Button x:Name="PART_MoreColors"
+                                            IsVisible="{Binding !$parent[mxe:ColorEditor].ReadOnly}"
+                                            Command="{Binding $parent[mxe:ColorEditor].ShowColorPickerCommand}"
+                                            Theme="{StaticResource ColorEditorMoreColorsButtonTheme}">
+                                        <Path Fill="{Binding $parent[Button].Foreground}"
+                                              Data="{StaticResource AddColorIcon}"/>
+                                        <Button.CommandParameter>
+                                            <sys:Boolean>True</sys:Boolean>
+                                        </Button.CommandParameter>
+                                    </Button>
+                                </WrapPanel>
+                            </Grid>
+                        </StackPanel>
+                        <ListBox Name="PART_PlatformColorsSelector" Background="Transparent" Grid.Row="2"
+                                 IsVisible="{Binding IsChecked, ElementName=PlatformChecker}"
+                                 Margin="{DynamicResource ColorEditorPlatformColorSelectorMargin}">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <DockPanel>
+                                        <ContentControl DockPanel.Dock="Left"
+                                                        Background="{Binding Converter={mxev:SolidColorBrushConverter}}"
+                                                        Theme="{StaticResource ColorValuePresenterTheme}"/>
+                                        <TextBlock DockPanel.Dock="Right"
+                                                   Text="{Binding Converter={StaticResource ColorLocalizationConverter}}"
+                                                   Margin="6,0,0,0"
+                                                   VerticalAlignment="Center" />
+                                    </DockPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                            <ListBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <VirtualizingStackPanel IsEnabled="{Binding !$parent[mxe:ColorEditor].ReadOnly}" />
+                                </ItemsPanelTemplate>
+                            </ListBox.ItemsPanel>
+                        </ListBox>
+                        <mxev:ColorPickerControl Grid.Row="2"
+                                                 x:Name="PART_ColorPickerControl"
+                                                 ShowAlphaChannel="{TemplateBinding ShowAlphaChannel}"
+                                                 IsVisible="{TemplateBinding IsColorPickerVisible}"
+                                                 BorderThickness="0"
+                                                 BorderBrush="Transparent"/>
+                        <ContentPresenter ContentTemplate="{StaticResource ColorEditorFooterTemplate}" Grid.Row="3">
+                            <ContentPresenter.IsVisible>
+                                <MultiBinding Converter="{x:Static BoolConverters.And}">
+                                    <Binding RelativeSource="{RelativeSource TemplatedParent}"
+                                             Path="ShowConfirmationButtons"/>
+                                    <Binding RelativeSource="{RelativeSource TemplatedParent}"
+                                             Path="IsColorPickerVisible"/>
+                                </MultiBinding>
+                            </ContentPresenter.IsVisible>
+                        </ContentPresenter>
+                        <Grid.Styles>
+                            <Style Selector="mxe|ColorEditor[ReadOnly=True] ListBoxItem:disabled /template/ ContentPresenter#PART_ContentPresenter">
+                                <Setter Property="TextBlock.Foreground" Value="{DynamicResource ColorEditorPlatformColorItemForegroundDisabled}" />
+                            </Style>
+                            <Style Selector="mxe|ColorEditor[ReadOnly=True] ListBoxItem:selected:disabled /template/ Border#PART_BackgroundBorder">
+                                <Setter Property="Background" Value="{DynamicResource ColorEditorSelectedPlatformColorItemBackgroundDisabled}" />
+                            </Style>
+                        </Grid.Styles>
+                    </Grid>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>

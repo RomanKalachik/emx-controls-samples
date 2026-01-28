@@ -1,0 +1,2358 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:mxt="clr-namespace:Eremex.AvaloniaUI.Controls.Bars;assembly=Eremex.Avalonia.Controls"
+                    xmlns:mxti="clr-namespace:Eremex.AvaloniaUI.Controls.Bars.Internal;assembly=Eremex.Avalonia.Controls"
+                    xmlns:controls="clr-namespace:Eremex.AvaloniaUI.Controls;assembly=Eremex.Avalonia.Controls"
+                    xmlns:internal="clr-namespace:Eremex.AvaloniaUI.Controls.Internal;assembly=Eremex.Avalonia.Controls"
+                    xmlns:mxe="clr-namespace:Eremex.AvaloniaUI.Controls.Editors;assembly=Eremex.Avalonia.Controls"
+                    xmlns:mxc="clr-namespace:Eremex.AvaloniaUI.Controls.Bars.Controls;assembly=Eremex.Avalonia.Controls"
+                    xmlns:system="clr-namespace:System;assembly=System.Runtime">
+
+    <Design.PreviewWith>
+        <Border Padding="20" BorderBrush="Pink" />
+    </Design.PreviewWith>
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary>
+            <x:Double x:Key="ToolbarFontSize">12</x:Double>
+            <CornerRadius x:Key="ToolbarCornerRadius">6</CornerRadius>
+            <CornerRadius x:Key="ToolbarCornerRadiusLeft">6,0,0,6</CornerRadius>
+            <CornerRadius x:Key="ToolbarCornerRadiusRight">0,6,6,0</CornerRadius>
+            <CornerRadius x:Key="ToolbarCornerRadiusTop">6,6,0,0</CornerRadius>
+            <CornerRadius x:Key="ToolbarCornerRadiusBottom">0,0,6,6</CornerRadius>
+
+            <CornerRadius x:Key="ToolbarOuterCornerRadius">7</CornerRadius>
+            <CornerRadius x:Key="ToolbarOuterCornerRadiusLeft">7,0,0,7</CornerRadius>
+            <CornerRadius x:Key="ToolbarOuterCornerRadiusRight">0,7,7,0</CornerRadius>
+            <CornerRadius x:Key="ToolbarOuterCornerRadiusTop">7,7,0,0</CornerRadius>
+            <CornerRadius x:Key="ToolbarOuterCornerRadiusBottom">0,0,7,7</CornerRadius>
+
+            <CornerRadius x:Key="ToolbarItemCornerRadius">4</CornerRadius>
+            <CornerRadius x:Key="ToolbarItemCornerRadiusLeft">4,0,0,4</CornerRadius>
+            <CornerRadius x:Key="ToolbarItemCornerRadiusRight">0,4,4,0</CornerRadius>
+            <CornerRadius x:Key="ToolbarItemCornerRadiusTop">4,4,0,0</CornerRadius>
+            <CornerRadius x:Key="ToolbarItemCornerRadiusBottom">0,0,4,4</CornerRadius>
+
+            <Thickness x:Key="ToolbarItemBorderThickness">1</Thickness>
+            <Thickness x:Key="ToolbarItemBorderThicknessLeft">1,1,0,1</Thickness>
+            <Thickness x:Key="ToolbarItemBorderThicknessRight">0,1,1,1</Thickness>
+            <Thickness x:Key="ToolbarItemBorderThicknessTop">1,1,1,0</Thickness>
+            <Thickness x:Key="ToolbarItemBorderThicknessBottom">1,0,1,1</Thickness>
+
+            <Thickness x:Key="ToolbarContainerBorderThickness">1</Thickness>
+            <Thickness x:Key="ToolbarContainerBorderThicknessLeft">1,0,0,0</Thickness>
+            <Thickness x:Key="ToolbarContainerBorderThicknessRight">0,0,1,0</Thickness>
+            <Thickness x:Key="ToolbarContainerBorderThicknessTop">0,1,0,0</Thickness>
+            <Thickness x:Key="ToolbarContainerBorderThicknessBottom">0,0,0,1</Thickness>
+
+            <Thickness x:Key="ToolbarSeparatorMarginHorizontal">4,5,4,5</Thickness>
+            <Thickness x:Key="ToolbarSeparatorMarginVertical">5,4,5,4</Thickness>
+            <Thickness x:Key="ToolbarSeparatorMarginInMenu">2</Thickness>
+
+            <Thickness x:Key="PopupMenuHeaderPadding">8,5,8,5</Thickness>
+            <Thickness x:Key="ToolbarItemGlyphMargin">6</Thickness>
+            <Thickness x:Key="ToolbarItemContentMargin">8,6,8,6</Thickness>
+            
+            <Thickness x:Key="ToolbarItemArrowMargin">6</Thickness>
+            <Thickness x:Key="PopupMenuScrollButtonPadding">5</Thickness>
+            
+            <Thickness x:Key="ToolbarItemLeftContentMargin">8,6,6,6</Thickness>
+            <Thickness x:Key="ToolbarItemRightContentMargin">0,6,8,6</Thickness>
+            
+            <Thickness x:Key="ToolbarItemGlyphMarginWithCheckBoxLeft">3,6,6,6</Thickness>
+            <Thickness x:Key="ToolbarItemGlyphMarginWithCheckBoxRight">6,6,3,6</Thickness>
+            <Thickness x:Key="ToolbarItemContentMarginWithCheckBoxLeft">3,6,8,6</Thickness>
+            <Thickness x:Key="ToolbarItemContentMarginWithCheckBoxRight">8,6,3,6</Thickness>
+            <Thickness x:Key="ToolbarItemLeftContentMarginWithCheckBoxLeft">3,6,6,6</Thickness>
+            <Thickness x:Key="ToolbarItemRightContentMarginWithCheckBoxLeft">0,6,8,6</Thickness>
+            <Thickness x:Key="ToolbarItemLeftContentMarginWithCheckBoxRight">8,6,6,6</Thickness>
+            <Thickness x:Key="ToolbarItemRightContentMarginWithCheckBoxRight">0,6,3,6</Thickness>
+            
+            <Thickness x:Key="ToolbarItemBottomContentMargin">8,0,8,6</Thickness>
+            
+            <Thickness x:Key="ToolbarItemLeftContentArrowMargin">6,6,2,6</Thickness>
+            <Thickness x:Key="ToolbarItemRightContentArrowMargin">2,6,6,6</Thickness>
+            <Thickness x:Key="ToolbarItemBottomContentArrowMargin">6,2,6,6</Thickness>
+            <Thickness x:Key="ToolbarItemTopContentArrowMargin">6,6,6,2</Thickness>
+            
+            <Thickness x:Key="ToolbarItemContentCenterArrowBottomMargin">6,0,6,2</Thickness>
+            <Thickness x:Key="ToolbarItemContentCenterArrowLeftMargin">0,6,6,6</Thickness>
+            <Thickness x:Key="ToolbarItemArrowLeftContentBottomMargin">2,0,6,6</Thickness>
+            <Thickness x:Key="ToolbarItemContentRightArrowBottomMargin">0,6,6,2</Thickness>
+            <Thickness x:Key="ToolbarItemContentCenterArrowRightMargin">0,6,2,6</Thickness>
+            <Thickness x:Key="ToolbarItemContentBottomArrowRightMargin">6,0,2,6</Thickness>
+            
+            <Thickness x:Key="ToolbarItemGlyphInMenuMargin">5</Thickness>
+            <Thickness x:Key="ToolbarItemContentInMenuMargin">5</Thickness>
+            <Thickness x:Key="ToolbarItemContentNoGlyphInMenuMargin">18,5,18,5</Thickness>
+            <Thickness x:Key="ToolbarItemArrowInMenuMargin">5</Thickness>
+            <Thickness x:Key="ToolbarItemShortcutInMenuMargin">5</Thickness>
+
+            <Thickness x:Key="RibbonItemSmallOnlyGlyphMargin">5</Thickness>
+            <Thickness x:Key="RibbonItemSmallOnlyContentMargin">5</Thickness>
+            <Thickness x:Key="RibbonItemSmallLeftGlyphMargin">5,5,0,5</Thickness>
+            <Thickness x:Key="RibbonItemSmallRightContentMargin">5</Thickness>
+            <Thickness x:Key="RibbonItemLargeGlyphMargin">5,5,5,5</Thickness>
+            <Thickness x:Key="RibbonItemLargeContentMargin">5,5,5,5</Thickness>
+            <Thickness x:Key="RibbonItemLargeSplitArrowMargin">3,0,3,0</Thickness>
+            <Thickness x:Key="RibbonItemLargeArrowMargin">3,0,3,0</Thickness>
+
+            <Thickness x:Key="RibbonItemSmallOnlyGlyphSplitArrowMargin">5</Thickness>
+            <Thickness x:Key="RibbonItemSmallOnlyContentSplitArrowMargin">5</Thickness>
+            <Thickness x:Key="RibbonItemSmallSplitArrowMargin">5</Thickness>
+            <Thickness x:Key="RibbonItemSmallLeftGlyphSplitArrowMargin">5,5,0,5</Thickness>
+            <Thickness x:Key="RibbonItemSmallRightContentSplitArrowMargin">5</Thickness>
+
+            <Thickness x:Key="RibbonItemSmallOnlyGlyphArrowMargin">5,5,0,5</Thickness>
+            <Thickness x:Key="RibbonItemSmallOnlyContentArrowMargin">5,5,0,5</Thickness>
+            <Thickness x:Key="RibbonItemSmallArrowMargin">5</Thickness>
+            <Thickness x:Key="RibbonItemSmallLeftGlyphArrowMargin">5,5,0,5</Thickness>
+            <Thickness x:Key="RibbonItemSmallRightContentArrowMargin">5,5,5,5</Thickness>
+            
+            <Thickness x:Key="ToolbarContainerPadding">4,2,4,2</Thickness>
+            <Thickness x:Key="ToolbarContainerPaddingTop">4,2,4,2</Thickness>
+            <Thickness x:Key="ToolbarContainerPaddingBottom">0,5,0,4</Thickness>
+            <Thickness x:Key="ToolbarContainerPaddingLeft">4,0,5,0</Thickness>
+            <Thickness x:Key="ToolbarContainerPaddingRight">5,0,4,0</Thickness>
+            <Thickness x:Key="ToolbarContainerPaddingFloating">1,2,1,2</Thickness>
+
+            <Thickness x:Key="ToolbarItemDragPopupPadding">6,5,6,5</Thickness>
+
+            <Thickness x:Key="PopupMenuHeaderControlBorderThickness">0</Thickness>
+            
+            <Thickness x:Key="PopupContentPadding">5,4,5,4</Thickness>
+            <Thickness x:Key="EditorContentPaddingInPopupMenu">8,3,8,3</Thickness>
+
+            <Thickness x:Key="MxPopupShadowMargin">10,10,10,10</Thickness>
+            <Thickness x:Key="MxCustomizationLayoutItemVerticalFirst">12,12,12,0</Thickness>
+            <Thickness x:Key="MxCustomizationLayoutItemVerticalCenter">12,12,12,0</Thickness>
+            <Thickness x:Key="MxCustomizationLayoutItemVerticalLast">12</Thickness>
+
+            <Thickness x:Key="MxCustomizationLayoutItemHorizontalFirst">12,12,0,12</Thickness>
+            <Thickness x:Key="MxCustomizationLayoutItemHorizontalCenter">12,12,0,12</Thickness>
+            <Thickness x:Key="MxCustomizationLayoutItemHorizontalLast">12</Thickness>
+
+            <Thickness x:Key="MxCustomizationLayoutItem">12</Thickness>
+            <system:Double x:Key="KeyTipFilteredOpacity">0.4</system:Double>
+            
+            <system:Double x:Key="ToolTipTextOpacity">0.6</system:Double>
+
+            <ControlTemplate x:Key="MxPopupContainerCloseButtonTemplate">
+                <Border>
+                    <Canvas Width="8" Height="8">
+                        <Line StartPoint="0,0" EndPoint="8, 8" Stroke="{DynamicResource Icons/Outline/Gray}"
+                              StrokeThickness="1" />
+                        <Line StartPoint="0,8" EndPoint="8, 0" Stroke="{DynamicResource Icons/Outline/Gray}"
+                              StrokeThickness="1" />
+                    </Canvas>
+                </Border>
+            </ControlTemplate>
+
+            <ControlTemplate x:Key="MxToolbarItemGlyphDecoratorTemplate" TargetType="mxti:ToolbarItemGlyphDecorator">
+                <Rectangle x:Name="PART_Border" RadiusX="4" RadiusY="4" Margin="3"
+                           Fill="{TemplateBinding Background}"
+                           Stroke="{TemplateBinding BorderBrush}"
+                           StrokeThickness="{Binding $parent[mxti:ToolbarItemGlyphDecorator].BorderThickness.Left}" />
+            </ControlTemplate>
+
+            <!-- ToolbarCheckItem GlyphTemplate -->
+            <DataTemplate x:Key="MxToolbarCheckItemGlyphTemplate">
+                <Canvas Width="10" Height="9" Margin="3,4,3,3" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Path Fill="{DynamicResource Icons/Outline/Gray}"
+                          Data="M9.70636 0.154772C10.0351 0.406793 10.0973 0.877578 9.84524 1.2063L4.09524 8.7063C3.95426 8.89019 3.7362 8.99859 3.50449 8.99996C3.27278 9.00134 3.05345 8.89554 2.91029 8.71334L0.160293 5.21334C-0.0956169 4.88764 -0.0390379 4.41615 0.286666 4.16024C0.61237 3.90433 1.08386 3.96091 1.33977 4.28661L3.49276 7.02678L8.65483 0.293654C8.90685 -0.035069 9.37763 -0.0972482 9.70636 0.154772Z" />
+                </Canvas>
+            </DataTemplate>
+            <!-- End ToolbarCheckItem GlyphTemplate -->
+
+            <!-- ElementDropDownArrow -->
+            <ControlTemplate x:Key="MxToolbarItemDropDownArrowTemplate">
+                <Canvas Width="10" Height="10" ClipToBounds="False">
+                    <Path Data="M2,4 L5,7 L8,4" StrokeThickness="1"
+                          Stroke="{Binding Foreground, RelativeSource={RelativeSource TemplatedParent}}" />
+                </Canvas>
+            </ControlTemplate>
+
+            <ControlTemplate x:Key="MxToolbarItemDropDownArrowTemplateLeft">
+                <Canvas Width="10" Height="10" ClipToBounds="False">
+                    <Path Data="M1,4 L4.5,7.5 L8,4" StrokeThickness="1"
+                          Stroke="{Binding Foreground, RelativeSource={RelativeSource TemplatedParent}}" />
+                </Canvas>
+            </ControlTemplate>
+
+            <ControlTemplate x:Key="MxToolbarItemDropDownArrowTemplateRight">
+                <Canvas Width="10" Height="10" ClipToBounds="False">
+                    <Path Data="M1,4 L4.5,7.5 L8,4" StrokeThickness="1"
+                          Stroke="{Binding Foreground, RelativeSource={RelativeSource TemplatedParent}}" />
+                </Canvas>
+            </ControlTemplate>
+
+            <ControlTemplate x:Key="MxToolbarItemDropDownArrowInMenuTemplate">
+                <Canvas Width="10" Height="10" ClipToBounds="False">
+                    <Path Data="M4,2 L7.5,5.5 L4,9" StrokeThickness="1"
+                          Stroke="{Binding Foreground, RelativeSource={RelativeSource TemplatedParent}}" />
+                </Canvas>
+            </ControlTemplate>
+
+            <!-- ElementDropDownArrow:disabled -->
+            <ControlTemplate x:Key="MxToolbarItemDropDownArrowTemplateDisabled">
+                <Canvas Width="10" Height="10" ClipToBounds="False">
+                    <Path Data="M2,4 L5,7 L8,4" StrokeThickness="1"
+                          Stroke="{Binding Foreground, RelativeSource={RelativeSource TemplatedParent}}" />
+                </Canvas>
+            </ControlTemplate>
+
+            <ControlTemplate x:Key="MxToolbarItemDropDownArrowTemplateLeftDisabled">
+                <Canvas Width="10" Height="10" ClipToBounds="False">
+                    <Path Data="M1,4 L4.5,7.5 L8,4" StrokeThickness="1"
+                          Stroke="{Binding Foreground, RelativeSource={RelativeSource TemplatedParent}}" />
+                </Canvas>
+            </ControlTemplate>
+
+            <ControlTemplate x:Key="MxToolbarItemDropDownArrowTemplateRightDisabled">
+                <Canvas Width="10" Height="10" ClipToBounds="False">
+                    <Path Data="M1,4 L4.5,7.5 L8,4" StrokeThickness="1"
+                          Stroke="{Binding Foreground, RelativeSource={RelativeSource TemplatedParent}}" />
+                </Canvas>
+            </ControlTemplate>
+
+            <ControlTemplate x:Key="MxToolbarItemDropDownArrowInMenuTemplateDisabled">
+                <Canvas Width="10" Height="10">
+                    <Path Data="M4,2 L7.5,5.5 L4,9" StrokeThickness="1"
+                          Stroke="{Binding Foreground, RelativeSource={RelativeSource TemplatedParent}}" />
+                </Canvas>
+            </ControlTemplate>
+            <!-- End ElementDropDownArrow:disabled -->
+
+            <!-- ToolbarControlDragThumb -->
+            <ControlTemplate x:Key="MxToolbarDragThumbTemplate">
+                <Grid VerticalAlignment="Stretch" Background="Transparent">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Column="0" Width="1" VerticalAlignment="Stretch" Margin="1,5,1,5"
+                            Background="{DynamicResource Outline/Neutral/Transparent/Strong}" />
+                    <Border Grid.Column="1" Width="1" VerticalAlignment="Stretch" Margin="1,5,1,5"
+                            Background="{DynamicResource Outline/Neutral/Transparent/Strong}" />
+                </Grid>
+            </ControlTemplate>
+
+            <ControlTemplate x:Key="MxToolbarDragThumbTemplateVertical">
+                <Grid HorizontalAlignment="Stretch" Background="Transparent">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Border Grid.Row="0" Height="1" HorizontalAlignment="Stretch" Margin="5,1,5,1"
+                            Background="{DynamicResource Outline/Neutral/Transparent/Light}" />
+                    <Border Grid.Row="1" Height="1" HorizontalAlignment="Stretch" Margin="5,1,5,1"
+                            Background="{DynamicResource Outline/Neutral/Transparent/Light}" />
+                </Grid>
+            </ControlTemplate>
+            <!-- End ToolbarControlDragThumb -->
+
+            <controls:BoolToObjectConverter x:Key="CustomizationButtonColumnConverter">
+                <controls:BoolToObjectConverter.TrueValue>2</controls:BoolToObjectConverter.TrueValue>
+                <controls:BoolToObjectConverter.FalseValue>1</controls:BoolToObjectConverter.FalseValue>
+            </controls:BoolToObjectConverter>
+
+            <!-- ToolbarCustomizationButton -->
+            <DataTemplate x:Key="MxToolbarCustomizationGlyphTemplate">
+                <Grid HorizontalAlignment="Center" VerticalAlignment="Center" RowDefinitions="Auto"
+                      ColumnDefinitions="Auto, Auto, Auto" IsHitTestVisible="False">
+                    <Border Grid.Column="0" Width="2" Height="2" Margin="1"
+                            Background="{DynamicResource Icons/Outline/Gray}" />
+                    <Border Grid.Column="1" Width="2" Height="2" Margin="0,1"
+                            Background="{DynamicResource Icons/Outline/Gray}" />
+                    <Border Grid.Column="2" Width="2" Height="2" Margin="1"
+                            Background="{DynamicResource Icons/Outline/Gray}" />
+                </Grid>
+            </DataTemplate>
+
+            <DataTemplate x:Key="MxToolbarCustomizationGlyphTemplateVertical">
+                <Grid HorizontalAlignment="Center" VerticalAlignment="Center" RowDefinitions="Auto,Auto,Auto"
+                      ColumnDefinitions="Auto" IsHitTestVisible="False">
+                    <Border Grid.Row="0" Width="2" Height="2" Margin="1"
+                            Background="{DynamicResource Icons/Outline/Gray}" />
+                    <Border Grid.Row="1" Width="2" Height="2" Margin="1,0"
+                            Background="{DynamicResource Icons/Outline/Gray}" />
+                    <Border Grid.Row="2" Width="2" Height="2" Margin="1"
+                            Background="{DynamicResource Icons/Outline/Gray}" />
+                </Grid>
+            </DataTemplate>
+
+            <ControlTemplate x:Key="MxToolbarCustomizationButtonTemplate">
+                <Grid x:Name="PART_Panel" Background="Transparent">
+                    <Border x:Name="PART_Border">
+                        <Grid HorizontalAlignment="Center" VerticalAlignment="Center" RowDefinitions="Auto"
+                              ColumnDefinitions="Auto, Auto, Auto">
+                            <Border Grid.Column="0" Width="2" Height="2" Margin="1"
+                                    Background="{DynamicResource Icons/Outline/Gray}" />
+                            <Border Grid.Column="1" Width="2" Height="2" Margin="0,1"
+                                    Background="{DynamicResource Icons/Outline/Gray}" />
+                            <Border Grid.Column="2" Width="2" Height="2" Margin="1"
+                                    Background="{DynamicResource Icons/Outline/Gray}" />
+                        </Grid>
+                    </Border>
+                </Grid>
+            </ControlTemplate>
+
+            <ControlTemplate x:Key="MxToolbarCustomizationButtonTemplateVertical">
+                <Grid x:Name="PART_Panel" Background="Gray">
+                    <Border x:Name="PART_Border">
+                        <Grid HorizontalAlignment="Center" VerticalAlignment="Center" RowDefinitions="Auto,Auto,Auto"
+                              ColumnDefinitions="Auto">
+                            <Border Grid.Row="0" Width="2" Height="2" Margin="1"
+                                    Background="{DynamicResource Icons/Outline/Gray}" />
+                            <Border Grid.Row="1" Width="2" Height="2" Margin="1,0"
+                                    Background="{DynamicResource Icons/Outline/Gray}" />
+                            <Border Grid.Row="2" Width="2" Height="2" Margin="1"
+                                    Background="{DynamicResource Icons/Outline/Gray}" />
+                        </Grid>
+                    </Border>
+                </Grid>
+            </ControlTemplate>
+            <!-- End ToolbarCustomizationButton -->
+
+            <ControlTemplate x:Key="MxToolbarBorderTemplate">
+                <Border HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MinHeight="22" Padding="1">
+                    <ContentPresenter Content="{Binding Path=Content, RelativeSource={RelativeSource TemplatedParent}}" />
+                </Border>
+            </ControlTemplate>
+
+            <ControlTemplate x:Key="MxToolbarBorderTemplateNoBorder">
+                <Border HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MinHeight="22" Padding="1">
+                    <ContentPresenter Content="{Binding Path=Content, RelativeSource={RelativeSource TemplatedParent}}" />
+                </Border>
+            </ControlTemplate>
+
+            <ControlTemplate x:Key="MxToolbarBorderTemplateVertical">
+                <Border HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MinWidth="22" Padding="1">
+                    <ContentPresenter Content="{Binding Path=Content, RelativeSource={RelativeSource TemplatedParent}}" />
+                </Border>
+            </ControlTemplate>
+
+            <ControlTemplate x:Key="MxToolbarBorderTemplateFloating">
+                <Border HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MinHeight="22" Padding="1">
+                    <ContentPresenter Content="{Binding Path=Content, RelativeSource={RelativeSource TemplatedParent}}" />
+                </Border>
+            </ControlTemplate>
+
+            <!-- ToolbarItemBorder -->
+            <ControlTemplate x:Key="MxToolbarButtonItemBorderTemplate">
+                <Border x:Name="PART_Border" />
+            </ControlTemplate>
+
+            <ControlTemplate x:Key="MxToolbarButtonItemInMenuBorderTemplate">
+                <Border x:Name="PART_Border" />
+            </ControlTemplate>
+            <!-- End ToolbarItemBorder -->
+
+        </ResourceDictionary>
+    </ResourceDictionary.MergedDictionaries>
+
+    <ControlTheme x:Key="{x:Type mxt:ToolbarManager}" TargetType="mxt:ToolbarManager">
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="VerticalAlignment" Value="Stretch" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ToolbarFloatingWindowClientControlCaptionAreaNoShadow" TargetType="ContentControl">
+        <Style Selector="^/template/Border#PART_CaptionBorder">
+            <Setter Property="CornerRadius" Value="0"></Setter>
+            <Setter Property="BorderThickness" Value="{DynamicResource ToolbarFloatingWindowClientControlCaptionThickness/NoShadow}"></Setter>
+        </Style>
+    </ControlTheme>
+    <ControlTheme x:Key="{x:Type mxti:ToolbarFloatingWindowClientControl}" TargetType="mxti:ToolbarFloatingWindowClientControl">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="mxti:ToolbarFloatingWindowClientControl">
+                    <controls:ShadowControl Classes="large">
+                        <Grid RowDefinitions="Auto, Auto">
+                            <ContentControl Grid.Row="0" x:Name="PART_CaptionArea">
+                                <Grid RowDefinitions="Auto, Auto">
+                                    <Grid ColumnDefinitions="*, Auto">
+                                        <TextBlock Grid.Column="0" x:Name="PART_Caption"
+                                                   Text="{TemplateBinding Caption}" />
+                                        <mxti:FloatingToolbarCloseButton Grid.Column="1" x:Name="PART_CloseButton" />
+                                    </Grid>
+                                    <Border Grid.Row="1" x:Name="PART_Separator" />
+                                </Grid>
+                            </ContentControl>
+                            <Border Grid.Row="1" x:Name="PART_ContentBorder">
+                                <ContentPresenter Content="{TemplateBinding Content}" />
+                            </Border>
+                        </Grid>
+                    </controls:ShadowControl>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <Style Selector="^/template/controls|ShadowControl">
+            <Setter Property="CornerRadius" Value="{StaticResource ToolbarCornerRadius}" />
+        </Style>
+
+        <Style Selector="^/template/TextBlock#PART_Caption">
+            <Setter Property="IsHitTestVisible" Value="False" />
+            <Setter Property="Foreground" Value="{DynamicResource Text/Neutral/Primary}" />
+            <Setter Property="FontSize" Value="{StaticResource ToolbarFontSize}" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="8,0, 0,0" />
+        </Style>
+
+        <Style Selector="^/template/Border#PART_Separator">
+            <Setter Property="Height" Value="1" />
+            <Setter Property="Background" Value="{DynamicResource Outline/Neutral/Transparent/Light}" />
+        </Style>
+
+        <Style Selector="^/template/Border#PART_ContentBorder">
+            <Setter Property="BorderThickness" Value="{DynamicResource ToolbarFloatingWindowClientControlBorderThickness}" />
+            <Setter Property="CornerRadius" Value="{StaticResource ToolbarCornerRadiusBottom}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource Outline/Neutral/On Tertiary/Strong}" />
+        </Style>
+        
+        <Style Selector="^:no-shadow/template/Border#PART_ContentBorder">
+            <Setter Property="BorderThickness" Value="{DynamicResource ToolbarFloatingWindowClientControlBorderThickness/NoShadow}" />
+            <Setter Property="CornerRadius" Value="0" />
+        </Style>
+
+        <Style Selector="^/template/ContentControl#PART_CaptionArea">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Border BorderThickness="{DynamicResource ToolbarFloatingWindowClientControlCaptionThickness}"
+                                CornerRadius="{StaticResource ToolbarCornerRadiusTop}"
+                                BorderBrush="{DynamicResource Outline/Neutral/On Tertiary/Strong}"
+                                Background="{DynamicResource Fill/Neutral/Primary/Hover}"
+                                x:Name="PART_CaptionBorder">
+                            <ContentPresenter Content="{TemplateBinding Content}" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+        <Style Selector="^:no-shadow/template/ContentControl#PART_CaptionArea">
+            <Setter Property="Theme" Value="{StaticResource ToolbarFloatingWindowClientControlCaptionAreaNoShadow}"></Setter>
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type mxt:ToolbarSeparatorItem}" TargetType="mxt:ToolbarSeparatorItem">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Background="Transparent">
+                    <Border Width="1" Margin="{StaticResource ToolbarSeparatorMarginHorizontal}"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Stretch"
+                            Background="{DynamicResource Outline/Neutral/Transparent/Strong}" />
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^.DockLeft">
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border Background="Transparent">
+                        <Border Height="1" Margin="{StaticResource ToolbarSeparatorMarginVertical}"
+                                HorizontalAlignment="Stretch" VerticalAlignment="Top"
+                                Background="{DynamicResource Outline/Neutral/Transparent/Strong}" />
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+
+        <Style Selector="^.DockRight">
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border Background="Transparent">
+                        <Border Height="1" Margin="{StaticResource ToolbarSeparatorMarginVertical}"
+                                HorizontalAlignment="Stretch" VerticalAlignment="Top"
+                                Background="{DynamicResource Outline/Neutral/Transparent/Strong}" />
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+
+        <Style Selector="^:menu,^.InMenu">
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border Background="Transparent">
+                        <Border Height="1" HorizontalAlignment="Stretch" VerticalAlignment="Top"
+                                Margin="{StaticResource ToolbarSeparatorMarginInMenu}"
+                                Background="{DynamicResource Outline/Neutral/Transparent/Strong}" />
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type mxti:PopupMenuHeaderControl}" TargetType="mxti:PopupMenuHeaderControl">
+        <Setter Property="FontSize" Value="{StaticResource ToolbarFontSize}" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="Foreground" Value="{DynamicResource Text/Neutral/Secondary}" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Border x:Name="PART_Border" HorizontalAlignment="Stretch">
+                        <ContentPresenter Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <Style Selector="^/template/Border#PART_Border">
+            <Setter Property="BorderThickness" Value="{StaticResource PopupMenuHeaderControlBorderThickness}" />
+            <Setter Property="CornerRadius" Value="{StaticResource ToolbarOuterCornerRadiusTop}" />
+            <Setter Property="Background" Value="{DynamicResource Fill/Neutral/Primary/Hover}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource Outline/Neutral/Transparent/Light}" />
+            <Setter Property="Padding" Value="{StaticResource PopupMenuHeaderPadding}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="ToolbarItemLayoutPanelBase" TargetType="mxti:ToolbarItemLayoutPanel">
+        <Setter Property="GlyphHorizontalAlignment" Value="Left" />
+        <Setter Property="GlyphVerticalAlignment" Value="Center" />
+        <Setter Property="ContentHorizontalAlignment" Value="Left" />
+        <Setter Property="ContentVerticalAlignment" Value="Center" />
+        <Setter Property="DropDownArrowHorizontalAlignment" Value="Center" />
+        <Setter Property="DropDownArrowVerticalAlignment" Value="Center" />
+        <Setter Property="ItemShortcutVerticalAlignment" Value="Center" />
+        <Setter Property="ItemShortcutHorizontalAlignment" Value="Right" />
+        <Setter Property="GlyphMargin" Value="{StaticResource ToolbarItemGlyphMargin}" />
+        <Setter Property="ContentMargin" Value="{StaticResource ToolbarItemGlyphMargin}" />
+        <Setter Property="DropDownArrowMargin" Value="{StaticResource ToolbarItemArrowMargin}" />
+        <Setter Property="EditorMargin" Value="1" />
+
+        <!-- Only Content -->
+        <Style Selector="^.LayoutContent">
+            <Setter Property="ContentMargin" Value="{StaticResource ToolbarItemContentMargin}" />
+        </Style>
+
+        <!-- Only Glyph -->
+        <Style Selector="^.LayoutGlyph">
+            <Setter Property="GlyphMargin" Value="{StaticResource ToolbarItemGlyphMargin}" />
+        </Style>
+
+        <!-- Glyph <> Content -->
+        <Style
+            Selector="^.LayoutGlyphLeftContentRight">
+            <Setter Property="GlyphMargin" Value="{StaticResource ToolbarItemLeftContentMargin}" />
+            <Setter Property="ContentMargin" Value="{StaticResource ToolbarItemRightContentMargin}" />
+        </Style>
+
+        <Style Selector="^.LayoutContentLeftGlyphRight">
+            <Setter Property="ContentMargin" Value="{StaticResource ToolbarItemLeftContentMargin}" />
+            <Setter Property="GlyphMargin" Value="{StaticResource ToolbarItemRightContentMargin}" />
+        </Style>
+
+        <Style Selector="^.LayoutGlyphTopContentBottom">
+            <Setter Property="GlyphHorizontalAlignment" Value="Center" />
+            <Setter Property="ContentHorizontalAlignment" Value="Center" />
+            <Setter Property="GlyphMargin" Value="{StaticResource ToolbarItemContentMargin}" />
+            <Setter Property="ContentMargin" Value="{StaticResource ToolbarItemBottomContentMargin}" />
+        </Style>
+
+        <Style Selector="^.LayoutContentTopGlyphBottom">
+            <Setter Property="GlyphHorizontalAlignment" Value="Center" />
+            <Setter Property="ContentHorizontalAlignment" Value="Center" />
+            <Setter Property="ContentMargin" Value="{StaticResource ToolbarItemContentMargin}" />
+            <Setter Property="GlyphMargin" Value="{StaticResource ToolbarItemBottomContentMargin}" />
+        </Style>
+
+        <!-- Glyph Split Arrow -->
+        <Style Selector="^.LayoutGlyphLeftSplitArrowRight">
+            <Setter Property="GlyphMargin" Value="{StaticResource ToolbarItemLeftContentArrowMargin}" />
+            <Setter Property="DropDownArrowMargin" Value="{StaticResource ToolbarItemArrowMargin}" />
+        </Style>
+
+        <Style Selector="^.LayoutGlyphTopSplitArrowBottom">
+            <Setter Property="GlyphMargin" Value="{StaticResource ToolbarItemTopContentArrowMargin}" />
+            <Setter Property="DropDownArrowMargin" Value="{StaticResource ToolbarItemArrowMargin}" />
+        </Style>
+
+        <Style Selector="^.LayoutSplitArrowLeftGlyphRight">
+            <Setter Property="GlyphMargin" Value="{StaticResource ToolbarItemRightContentArrowMargin}" />
+            <Setter Property="DropDownArrowMargin" Value="{StaticResource ToolbarItemArrowMargin}" />
+        </Style>
+
+        <!-- Content SplitArrow -->
+        <Style Selector="^.LayoutContentLeftSplitArrowRight">
+            <Setter Property="ContentMargin" Value="{StaticResource ToolbarItemLeftContentArrowMargin}" />
+            <Setter Property="DropDownArrowMargin" Value="{StaticResource ToolbarItemArrowMargin}" />
+        </Style>
+
+        <Style Selector="^.LayoutContentTopSplitArrowBottom">
+            <Setter Property="ContentMargin" Value="{StaticResource ToolbarItemTopContentArrowMargin}" />
+            <Setter Property="DropDownArrowMargin" Value="{StaticResource ToolbarItemArrowMargin}" />
+        </Style>
+
+        <Style Selector="^.LayoutSplitArrowLeftContentRight">
+            <Setter Property="ContentMargin" Value="{StaticResource ToolbarItemRightContentArrowMargin}" />
+            <Setter Property="DropDownArrowMargin" Value="{StaticResource ToolbarItemArrowMargin}" />
+        </Style>
+
+        <!-- Glyph Arrow -->
+        <Style Selector="^.LayoutGlyphLeftArrowRight">
+            <Setter Property="GlyphMargin" Value="{StaticResource ToolbarItemGlyphMargin}" />
+            <Setter Property="DropDownArrowMargin" Value="{StaticResource ToolbarItemRightContentArrowMargin}" />
+        </Style>
+
+        <Style Selector="^.LayoutGlyphTopArrowBottom">
+            <Setter Property="GlyphMargin" Value="{StaticResource ToolbarItemGlyphMargin}" />
+            <Setter Property="DropDownArrowMargin" Value="{StaticResource ToolbarItemBottomContentArrowMargin}" />
+        </Style>
+
+        <Style Selector="^.LayoutArrowLeftGlyphRight">
+            <Setter Property="GlyphMargin" Value="{StaticResource ToolbarItemRightContentArrowMargin}" />
+            <Setter Property="DropDownArrowMargin" Value="{StaticResource ToolbarItemArrowMargin}" />
+        </Style>
+
+        <!-- Content Arrow -->
+        <Style Selector="^.LayoutContentLeftArrowRight">
+            <Setter Property="ContentMargin" Value="{StaticResource ToolbarItemGlyphMargin}" />
+            <Setter Property="DropDownArrowMargin" Value="{StaticResource ToolbarItemRightContentArrowMargin}" />
+        </Style>
+
+        <Style Selector="^.LayoutContentTopArrowBottom">
+            <Setter Property="ContentMargin" Value="{StaticResource ToolbarItemGlyphMargin}" />
+            <Setter Property="DropDownArrowMargin" Value="{StaticResource ToolbarItemBottomContentArrowMargin}" />
+        </Style>
+
+        <Style Selector="^.LayoutArrowLeftContentRight">
+            <Setter Property="DropDownArrowMargin" Value="{StaticResource ToolbarItemArrowMargin}" />
+            <Setter Property="ContentMargin" Value="{StaticResource ToolbarItemRightContentArrowMargin}" />
+        </Style>
+
+        <!-- Glyph <> Content Split Arrow -->
+        <Style Selector="^.LayoutGlyphLeftContentCenterSplitArrowRight">
+            <Setter Property="GlyphMargin" Value="{StaticResource ToolbarItemGlyphMargin}" />
+            <Setter Property="ContentMargin" Value="{StaticResource ToolbarItemContentCenterArrowRightMargin}" />
+            <Setter Property="DropDownArrowMargin" Value="{StaticResource ToolbarItemArrowMargin}" />
+        </Style>
+
+        <Style Selector="^.LayoutContentLeftGlyphCenterSplitArrowRight">
+            <Setter Property="ContentMargin" Value="{StaticResource ToolbarItemGlyphMargin}" />
+            <Setter Property="GlyphMargin" Value="{StaticResource ToolbarItemContentCenterArrowRightMargin}" />
+            <Setter Property="DropDownArrowMargin" Value="{StaticResource ToolbarItemArrowMargin}" />
+        </Style>
+
+        <Style Selector="^.LayoutGlyphTopContentBottomSplitArrowRight">
+            <Setter Property="GlyphHorizontalAlignment" Value="Center" />
+            <Setter Property="ContentHorizontalAlignment" Value="Center" />
+            <Setter Property="GlyphMargin" Value="{StaticResource ToolbarItemLeftContentArrowMargin}" />
+            <Setter Property="ContentMargin" Value="{StaticResource ToolbarItemContentBottomArrowRightMargin}" />
+            <Setter Property="DropDownArrowMargin" Value="{StaticResource ToolbarItemArrowMargin}" />
+        </Style>
+
+        <Style Selector="^.LayoutContentTopGlyphBottomSplitArrowRight">
+            <Setter Property="GlyphHorizontalAlignment" Value="Center" />
+            <Setter Property="ContentHorizontalAlignment" Value="Center" />
+            <Setter Property="ContentMargin" Value="{StaticResource ToolbarItemLeftContentArrowMargin}" />
+            <Setter Property="GlyphMargin" Value="{StaticResource ToolbarItemContentBottomArrowRightMargin}" />
+            <Setter Property="DropDownArrowMargin" Value="{StaticResource ToolbarItemArrowMargin}" />
+        </Style>
+
+        <!-- SplitArrow Glyph <> Content -->
+        <Style Selector="^.LayoutSplitArrowLeftGlyphCenterContentRight">
+            <Setter Property="DropDownArrowMargin" Value="{StaticResource ToolbarItemArrowMargin}" />
+            <Setter Property="GlyphMargin" Value="{StaticResource ToolbarItemRightContentArrowMargin}" />
+            <Setter Property="ContentMargin" Value="{StaticResource ToolbarItemContentCenterArrowLeftMargin}" />
+        </Style>
+
+        <Style Selector="^.LayoutSplitArrowLeftContentCenterGlyphRight">
+            <Setter Property="DropDownArrowMargin" Value="{StaticResource ToolbarItemArrowMargin}" />
+            <Setter Property="ContentMargin" Value="{StaticResource ToolbarItemRightContentArrowMargin}" />
+            <Setter Property="GlyphMargin" Value="{StaticResource ToolbarItemContentCenterArrowLeftMargin}" />
+        </Style>
+
+        <Style Selector="^.LayoutSplitArrowLeftGlyphTopContentBottom">
+            <Setter Property="GlyphHorizontalAlignment" Value="Center" />
+            <Setter Property="ContentHorizontalAlignment" Value="Center" />
+            <Setter Property="DropDownArrowMargin" Value="{StaticResource ToolbarItemArrowMargin}" />
+            <Setter Property="GlyphMargin" Value="{StaticResource ToolbarItemRightContentArrowMargin}" />
+            <Setter Property="ContentMargin" Value="{StaticResource ToolbarItemArrowLeftContentBottomMargin}" />
+        </Style>
+
+        <Style Selector="^.LayoutSplitArrowLeftContentTopGlyphBottom">
+            <Setter Property="GlyphHorizontalAlignment" Value="Center" />
+            <Setter Property="ContentHorizontalAlignment" Value="Center" />
+            <Setter Property="DropDownArrowMargin" Value="{StaticResource ToolbarItemArrowMargin}" />
+            <Setter Property="ContentMargin" Value="{StaticResource ToolbarItemRightContentArrowMargin}" />
+            <Setter Property="GlyphMargin" Value="{StaticResource ToolbarItemArrowLeftContentBottomMargin}" />
+        </Style>
+
+        <!-- Glyph <> Content -->
+        <!--  SplitArrow -->
+        <Style Selector="^.LayoutGlyphLeftContentRightSplitArrowBottom">
+            <Setter Property="GlyphMargin" Value="{StaticResource ToolbarItemTopContentArrowMargin}" />
+            <Setter Property="ContentMargin" Value="{StaticResource ToolbarItemContentRightArrowBottomMargin}" />
+            <Setter Property="DropDownArrowMargin" Value="{StaticResource ToolbarItemArrowMargin}" />
+        </Style>
+
+        <Style
+            Selector="^.LayoutContentLeftGlyphRightSplitArrowBottom">
+            <Setter Property="ContentMargin" Value="{StaticResource ToolbarItemTopContentArrowMargin}" />
+            <Setter Property="GlyphMargin" Value="{StaticResource ToolbarItemContentRightArrowBottomMargin}" />
+            <Setter Property="DropDownArrowMargin" Value="{StaticResource ToolbarItemArrowMargin}" />
+        </Style>
+
+        <Style Selector="^.LayoutGlyphTopContentCenterSplitArrowBottom">
+            <Setter Property="GlyphHorizontalAlignment" Value="Center" />
+            <Setter Property="ContentHorizontalAlignment" Value="Center" />
+            <Setter Property="GlyphMargin" Value="{StaticResource ToolbarItemGlyphMargin}" />
+            <Setter Property="ContentMargin" Value="{StaticResource ToolbarItemContentCenterArrowBottomMargin}" />
+            <Setter Property="DropDownArrowMargin" Value="{StaticResource ToolbarItemArrowMargin}" />
+        </Style>
+
+        <Style Selector="^.LayoutContentTopGlyphCenterSplitArrowBottom">
+            <Setter Property="GlyphHorizontalAlignment" Value="Center" />
+            <Setter Property="ContentHorizontalAlignment" Value="Center" />
+            <Setter Property="ContentMargin" Value="{StaticResource ToolbarItemGlyphMargin}" />
+            <Setter Property="GlyphMargin" Value="{StaticResource ToolbarItemContentCenterArrowBottomMargin}" />
+            <Setter Property="DropDownArrowMargin" Value="{StaticResource ToolbarItemArrowMargin}" />
+        </Style>
+
+        <!-- Glyph <> Content Arrow -->
+        <Style Selector="^.LayoutGlyphLeftContentCenterArrowRight">
+            <Setter Property="GlyphMargin" Value="{StaticResource ToolbarItemGlyphMargin}" />
+            <Setter Property="ContentMargin" Value="{StaticResource ToolbarItemContentCenterArrowRightMargin}" />
+            <Setter Property="DropDownArrowMargin" Value="{StaticResource ToolbarItemArrowMargin}" />
+        </Style>
+
+        <Style Selector="^.LayoutContentLeftGlyphCenterArrowRight">
+            <Setter Property="ContentMargin" Value="{StaticResource ToolbarItemGlyphMargin}" />
+            <Setter Property="GlyphMargin" Value="{StaticResource ToolbarItemContentCenterArrowRightMargin}" />
+            <Setter Property="DropDownArrowMargin" Value="{StaticResource ToolbarItemArrowMargin}" />
+        </Style>
+
+        <Style Selector="^.LayoutGlyphTopContentBottomArrowRight">
+            <Setter Property="GlyphHorizontalAlignment" Value="Center" />
+            <Setter Property="ContentHorizontalAlignment" Value="Center" />
+            <Setter Property="GlyphMargin" Value="{StaticResource ToolbarItemLeftContentArrowMargin}" />
+            <Setter Property="ContentMargin" Value="{StaticResource ToolbarItemContentBottomArrowRightMargin}" />
+            <Setter Property="DropDownArrowMargin" Value="{StaticResource ToolbarItemArrowMargin}" />
+        </Style>
+
+        <Style Selector="^.LayoutContentTopGlyphBottomArrowRight">
+            <Setter Property="GlyphHorizontalAlignment" Value="Center" />
+            <Setter Property="ContentHorizontalAlignment" Value="Center" />
+            <Setter Property="ContentMargin" Value="{StaticResource ToolbarItemLeftContentArrowMargin}" />
+            <Setter Property="GlyphMargin" Value="{StaticResource ToolbarItemContentBottomArrowRightMargin}" />
+            <Setter Property="DropDownArrowMargin" Value="{StaticResource ToolbarItemArrowMargin}" />
+        </Style>
+
+        <!-- Arrow Glyph <> Content -->
+        <Style Selector="^.LayoutArrowLeftGlyphCenterContentRight">
+            <Setter Property="DropDownArrowMargin" Value="{StaticResource ToolbarItemArrowMargin}" />
+            <Setter Property="GlyphMargin" Value="{StaticResource ToolbarItemRightContentArrowMargin}" />
+            <Setter Property="ContentMargin" Value="{StaticResource ToolbarItemContentCenterArrowLeftMargin}" />
+        </Style>
+
+        <Style Selector="^.LayoutArrowLeftContentCenterGlyphRight">
+            <Setter Property="DropDownArrowMargin" Value="{StaticResource ToolbarItemArrowMargin}" />
+            <Setter Property="ContentMargin" Value="{StaticResource ToolbarItemRightContentArrowMargin}" />
+            <Setter Property="GlyphMargin" Value="{StaticResource ToolbarItemContentCenterArrowLeftMargin}" />
+        </Style>
+
+        <Style Selector="^.LayoutArrowLeftGlyphTopContentBottom">
+            <Setter Property="GlyphHorizontalAlignment" Value="Center" />
+            <Setter Property="ContentHorizontalAlignment" Value="Center" />
+            <Setter Property="DropDownArrowMargin" Value="{StaticResource ToolbarItemArrowMargin}" />
+            <Setter Property="GlyphMargin" Value="{StaticResource ToolbarItemRightContentArrowMargin}" />
+            <Setter Property="ContentMargin" Value="{StaticResource ToolbarItemArrowLeftContentBottomMargin}" />
+        </Style>
+
+        <Style Selector="^.LayoutArrowLeftContentTopGlyphBottom">
+            <Setter Property="GlyphHorizontalAlignment" Value="Center" />
+            <Setter Property="ContentHorizontalAlignment" Value="Center" />
+            <Setter Property="DropDownArrowMargin" Value="{StaticResource ToolbarItemArrowMargin}" />
+            <Setter Property="ContentMargin" Value="{StaticResource ToolbarItemRightContentArrowMargin}" />
+            <Setter Property="GlyphMargin" Value="{StaticResource ToolbarItemArrowLeftContentBottomMargin}" />
+        </Style>
+
+        <!-- Glyph <> Content -->
+        <!--  Arrow -->
+        <Style Selector="^.LayoutGlyphLeftContentRightArrowBottom">
+            <Setter Property="GlyphMargin" Value="{StaticResource ToolbarItemTopContentArrowMargin}" />
+            <Setter Property="ContentMargin" Value="{StaticResource ToolbarItemContentRightArrowBottomMargin}" />
+            <Setter Property="DropDownArrowMargin" Value="{StaticResource ToolbarItemArrowMargin}" />
+        </Style>
+
+        <Style Selector="^.LayoutContentLeftGlyphRightArrowBottom">
+            <Setter Property="ContentMargin" Value="{StaticResource ToolbarItemTopContentArrowMargin}" />
+            <Setter Property="GlyphMargin" Value="{StaticResource ToolbarItemContentRightArrowBottomMargin}" />
+            <Setter Property="DropDownArrowMargin" Value="{StaticResource ToolbarItemArrowMargin}" />
+        </Style>
+
+        <Style Selector="^.LayoutGlyphTopContentCenterArrowBottom">
+            <Setter Property="GlyphHorizontalAlignment" Value="Center" />
+            <Setter Property="ContentHorizontalAlignment" Value="Center" />
+            <Setter Property="GlyphMargin" Value="{StaticResource ToolbarItemGlyphMargin}" />
+            <Setter Property="ContentMargin" Value="{StaticResource ToolbarItemContentCenterArrowBottomMargin}" />
+            <Setter Property="DropDownArrowMargin" Value="{StaticResource ToolbarItemArrowMargin}" />
+        </Style>
+
+        <Style Selector="^.LayoutContentTopGlyphCenterArrowBottom">
+            <Setter Property="GlyphHorizontalAlignment" Value="Center" />
+            <Setter Property="ContentHorizontalAlignment" Value="Center" />
+            <Setter Property="ContentMargin" Value="{StaticResource ToolbarItemGlyphMargin}" />
+            <Setter Property="GlyphMargin" Value="{StaticResource ToolbarItemContentCenterArrowBottomMargin}" />
+            <Setter Property="DropDownArrowMargin" Value="{StaticResource ToolbarItemArrowMargin}" />
+        </Style>
+
+        <Style Selector="^.LayoutInMenu">
+            <Setter Property="GlyphMargin" Value="{StaticResource ToolbarItemGlyphInMenuMargin}" />
+            <Setter Property="ContentMargin" Value="{StaticResource ToolbarItemContentInMenuMargin}" />
+            <Setter Property="DropDownArrowMargin" Value="{StaticResource ToolbarItemArrowInMenuMargin}" />
+            <Setter Property="ItemShortcutMargin" Value="{StaticResource ToolbarItemShortcutInMenuMargin}" />
+        </Style>
+
+        <Style Selector="^.LayoutInMenuNoGlyph">
+            <Setter Property="GlyphMargin" Value="0" />
+            <Setter Property="ContentMargin" Value="{StaticResource ToolbarItemContentNoGlyphInMenuMargin}" />
+            <Setter Property="DropDownArrowMargin" Value="{StaticResource ToolbarItemArrowInMenuMargin}" />
+            <Setter Property="ItemShortcutMargin" Value="{StaticResource ToolbarItemShortcutInMenuMargin}" />
+        </Style>
+
+        <!-- ButtonItem -->
+        <Style Selector="^.Button">
+            <Setter Property="ShowBorder" Value="True" />
+        </Style>
+        
+        <!-- Only Small Content -->
+        <Style
+            Selector="^.LayoutPageGroupSmallContent">
+            <Setter Property="ContentHorizontalAlignment" Value="Center" />
+            <Setter Property="ContentVerticalAlignment" Value="Center" />
+            <Setter Property="GlyphMargin" Value="0" />
+            <Setter Property="ContentMargin" Value="{StaticResource RibbonItemSmallOnlyContentMargin}" />
+        </Style>
+
+        <!-- Only Small Glyph -->
+        <Style
+            Selector="^.LayoutPageGroupSmallGlyph">
+            <Setter Property="GlyphHorizontalAlignment" Value="Center" />
+            <Setter Property="GlyphVerticalAlignment" Value="Center" />
+            <Setter Property="ContentMargin" Value="0" />
+            <Setter Property="GlyphMargin" Value="{StaticResource RibbonItemSmallOnlyGlyphMargin}" />
+        </Style>
+
+        <!-- Only Small Glyph Content -->
+        <Style
+            Selector="^.LayoutPageGroupSmallGlyphContent">
+            <Setter Property="ContentHorizontalAlignment" Value="Center" />
+            <Setter Property="ContentVerticalAlignment" Value="Center" />
+            <Setter Property="GlyphMargin" Value="{StaticResource RibbonItemSmallLeftGlyphMargin}" />
+            <Setter Property="ContentMargin" Value="{StaticResource RibbonItemSmallRightContentMargin}" />
+        </Style>
+
+        <!-- Large Glyph Content -->
+        <Style
+            Selector="^.LayoutPageGroupLarge">
+            <Setter Property="GlyphHorizontalAlignment" Value="Center" />
+            <Setter Property="GlyphVerticalAlignment" Value="Center" />
+            <Setter Property="ContentHorizontalAlignment" Value="Center" />
+            <Setter Property="ContentVerticalAlignment" Value="Top" />
+            <Setter Property="ContentMargin" Value="{StaticResource RibbonItemLargeGlyphMargin}" />
+            <Setter Property="GlyphMargin" Value="{StaticResource RibbonItemLargeContentMargin}" />
+        </Style>
+
+
+        <!-- Only Small Content SplitArrow -->
+        <Style
+            Selector="^.LayoutPageGroupSmallContentSplitArrow">
+            <Setter Property="ContentHorizontalAlignment" Value="Center" />
+            <Setter Property="ContentVerticalAlignment" Value="Center" />
+            <Setter Property="GlyphMargin" Value="0" />
+            <Setter Property="ContentMargin" Value="{StaticResource RibbonItemSmallOnlyContentSplitArrowMargin}" />
+            <Setter Property="DropDownArrowMargin" Value="{StaticResource RibbonItemSmallSplitArrowMargin}" />
+        </Style>
+
+        <!-- Only Small Glyph SplitArrow -->
+        <Style
+            Selector="^.LayoutPageGroupSmallGlyphSplitArrow">
+            <Setter Property="GlyphHorizontalAlignment" Value="Center" />
+            <Setter Property="GlyphVerticalAlignment" Value="Center" />
+            <Setter Property="ContentMargin" Value="0" />
+            <Setter Property="GlyphMargin" Value="{StaticResource RibbonItemSmallOnlyGlyphSplitArrowMargin}" />
+            <Setter Property="DropDownArrowMargin" Value="{StaticResource RibbonItemSmallSplitArrowMargin}" />
+        </Style>
+
+        <!-- Only Small Glyph Content SplitArrow -->
+        <Style
+            Selector="^.LayoutPageGroupSmallGlyphContentSplitArrow">
+            <Setter Property="ContentHorizontalAlignment" Value="Center" />
+            <Setter Property="ContentVerticalAlignment" Value="Center" />
+            <Setter Property="GlyphHorizontalAlignment" Value="Center" />
+            <Setter Property="GlyphVerticalAlignment" Value="Center" />
+            <Setter Property="ContentMargin" Value="{StaticResource RibbonItemSmallRightContentSplitArrowMargin}" />
+            <Setter Property="GlyphMargin" Value="{StaticResource RibbonItemSmallLeftGlyphSplitArrowMargin}" />
+            <Setter Property="DropDownArrowMargin" Value="{StaticResource RibbonItemSmallSplitArrowMargin}" />
+        </Style>
+
+        <!-- Large Glyph Content SplitArrow -->
+        <Style
+            Selector="^.LayoutPageGroupLargeSplitArrow">
+            <Setter Property="ContentHorizontalAlignment" Value="Center" />
+            <Setter Property="ContentVerticalAlignment" Value="Top" />
+            <Setter Property="GlyphHorizontalAlignment" Value="Center" />
+            <Setter Property="GlyphVerticalAlignment" Value="Center" />
+            <Setter Property="ContentMargin" Value="{StaticResource RibbonItemLargeContentMargin}" />
+            <Setter Property="GlyphMargin" Value="{StaticResource RibbonItemLargeGlyphMargin}" />
+            <Setter Property="DropDownArrowMargin" Value="{StaticResource RibbonItemLargeSplitArrowMargin}" />
+        </Style>
+
+        <!-- Only Small Content Arrow -->
+        <Style
+            Selector="^.LayoutPageGroupSmallContentArrow">
+            <Setter Property="ContentHorizontalAlignment" Value="Center" />
+            <Setter Property="ContentVerticalAlignment" Value="Center" />
+            <Setter Property="GlyphMargin" Value="0" />
+            <Setter Property="ContentMargin" Value="{StaticResource RibbonItemSmallOnlyContentArrowMargin}" />
+            <Setter Property="DropDownArrowMargin" Value="{StaticResource RibbonItemSmallArrowMargin}" />
+        </Style>
+
+        <!-- Only Small Glyph Arrow -->
+        <Style
+            Selector="^.LayoutPageGroupSmallGlyphArrow">
+            <Setter Property="GlyphHorizontalAlignment" Value="Center" />
+            <Setter Property="GlyphVerticalAlignment" Value="Center" />
+            <Setter Property="ContentMargin" Value="0" />
+            <Setter Property="GlyphMargin" Value="{StaticResource RibbonItemSmallOnlyGlyphArrowMargin}" />
+            <Setter Property="DropDownArrowMargin" Value="{StaticResource RibbonItemSmallArrowMargin}" />
+        </Style>
+
+        <!-- Only Small Glyph Content Arrow -->
+        <Style
+            Selector="^.LayoutPageGroupSmallGlyphContentArrow">
+            <Setter Property="ContentHorizontalAlignment" Value="Center" />
+            <Setter Property="ContentVerticalAlignment" Value="Center" />
+            <Setter Property="GlyphHorizontalAlignment" Value="Center" />
+            <Setter Property="GlyphVerticalAlignment" Value="Center" />
+            <Setter Property="ContentMargin" Value="{StaticResource RibbonItemSmallRightContentArrowMargin}" />
+            <Setter Property="GlyphMargin" Value="{StaticResource RibbonItemSmallLeftGlyphArrowMargin}" />
+            <Setter Property="DropDownArrowMargin" Value="{StaticResource RibbonItemSmallArrowMargin}" />
+        </Style>
+
+        <!-- Large Glyph Content Arrow -->
+        <Style
+            Selector="^.LayoutPageGroupLargeArrow">
+            <Setter Property="ContentHorizontalAlignment" Value="Center" />
+            <Setter Property="ContentVerticalAlignment" Value="Top" />
+            <Setter Property="GlyphHorizontalAlignment" Value="Center" />
+            <Setter Property="GlyphVerticalAlignment" Value="Center" />
+            <Setter Property="ContentMargin" Value="{StaticResource RibbonItemLargeContentMargin}" />
+            <Setter Property="GlyphMargin" Value="{StaticResource RibbonItemLargeGlyphMargin}" />
+            <Setter Property="DropDownArrowMargin" Value="{StaticResource RibbonItemLargeArrowMargin}" />
+        </Style>
+        
+    </ControlTheme>
+    <ControlTheme x:Key="{x:Type mxti:ToolbarItemLayoutPanel}" TargetType="mxti:ToolbarItemLayoutPanel" BasedOn="{StaticResource ToolbarItemLayoutPanelBase}">
+        <!-- TextItem -->
+        <Style Selector="^.StaticText">
+            <Setter Property="ShowBorder" Value="True" />
+        </Style>
+        <!-- TextItem -->
+    </ControlTheme>
+    
+    <ControlTheme x:Key="{x:Type mxti:ToolbarCheckBox}" TargetType="mxti:ToolbarCheckBox" BasedOn="{StaticResource {x:Type CheckBox}}">
+        
+    </ControlTheme>
+    
+    <ControlTheme x:Key="{x:Type mxti:ToolbarRadioButton}" TargetType="mxti:ToolbarRadioButton" BasedOn="{StaticResource {x:Type RadioButton}}">
+        
+    </ControlTheme>
+    
+    <ControlTheme x:Key="{x:Type mxti:ToolbarCheckItemLayoutPanel}" TargetType="mxti:ToolbarCheckItemLayoutPanel" BasedOn="{StaticResource ToolbarItemLayoutPanelBase}">
+        <!-- CheckItem -->
+        <Style Selector="^.Menu">
+            <Setter Property="GlyphTemplate" Value="{DynamicResource MxToolbarCheckItemGlyphTemplate}" />
+        </Style>
+        
+        <Style Selector="^[CheckBoxStyle=CheckBox]">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="CheckBoxTemplate">
+                <Setter.Value>
+                    <DataTemplate DataType="mxt:ToolbarCheckItem">
+                        <mxti:ToolbarCheckBox x:Name="PART_Check" 
+                                              Padding="0" 
+                                              Margin="0" 
+                                              Focusable="False" 
+                                              IsHitTestVisible="False"
+                                              IsOwnerPointerOver="{Binding IsPointerOver}"
+                                              IsChecked="{Binding IsChecked}"/>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+        <Style Selector="^[CheckBoxStyle=RadioButton]">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="CheckBoxTemplate">
+                <Setter.Value>
+                    <DataTemplate DataType="mxt:ToolbarCheckItem">
+                        <mxti:ToolbarRadioButton x:Name="PART_Radio" 
+                                                 Padding="0" 
+                                                 Margin="0" 
+                                                 Focusable="False" 
+                                                 IsHitTestVisible="False"
+                                                 IsOwnerPointerOver="{Binding IsPointerOver}"
+                                                 IsChecked="{Binding IsChecked}"/>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+        <!-- Only Content -->
+        <Style Selector="^[CheckBoxStyle=CheckBox][CheckBoxAlignment=Before].LayoutContent, ^[CheckBoxStyle=RadioButton][CheckBoxAlignment=Before].LayoutContent">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="IsHitTestVisible" Value="True"/>
+            <Setter Property="ContentMargin" Value="{StaticResource ToolbarItemContentMarginWithCheckBoxLeft}" />
+        </Style>
+
+        <!-- Only Glyph -->
+        <Style Selector="^[CheckBoxStyle=CheckBox][CheckBoxAlignment=Before].LayoutGlyph,^[CheckBoxStyle=RadioButton][CheckBoxAlignment=Before].LayoutGlyph">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="IsHitTestVisible" Value="True"/>
+            <Setter Property="GlyphMargin" Value="{StaticResource ToolbarItemGlyphMarginWithCheckBoxLeft}" />
+        </Style>
+        
+        <!-- Only Content -->
+        <Style Selector="^[CheckBoxStyle=CheckBox][CheckBoxAlignment=After].LayoutContent,^[CheckBoxStyle=RadioButton][CheckBoxAlignment=After].LayoutContent">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="IsHitTestVisible" Value="True"/>
+            <Setter Property="ContentMargin" Value="{StaticResource ToolbarItemContentMarginWithCheckBoxRight}" />
+        </Style>
+
+        <!-- Only Glyph -->
+        <Style Selector="^[CheckBoxStyle=CheckBox][CheckBoxAlignment=After].LayoutGlyph,^[CheckBoxStyle=RadioButton][CheckBoxAlignment=After].LayoutGlyph">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="IsHitTestVisible" Value="True"/>
+            <Setter Property="GlyphMargin" Value="{StaticResource ToolbarItemGlyphMarginWithCheckBoxRight}" />
+        </Style>
+
+        <!-- Glyph <> Content -->
+        <Style Selector="^[CheckBoxStyle=CheckBox][CheckBoxAlignment=Before].LayoutGlyphLeftContentRight,^[CheckBoxStyle=RadioButton][CheckBoxAlignment=Before].LayoutGlyphLeftContentRight">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="IsHitTestVisible" Value="True"/>
+            <Setter Property="GlyphMargin" Value="{StaticResource ToolbarItemLeftContentMarginWithCheckBoxLeft}" />
+            <Setter Property="ContentMargin" Value="{StaticResource ToolbarItemRightContentMarginWithCheckBoxLeft}" />
+        </Style>
+
+        <Style Selector="^[CheckBoxStyle=CheckBox][CheckBoxAlignment=Before].LayoutContentLeftGlyphRight,^[CheckBoxStyle=RadioButton][CheckBoxAlignment=Before].LayoutContentLeftGlyphRight">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="IsHitTestVisible" Value="True"/>
+            <Setter Property="ContentMargin" Value="{StaticResource ToolbarItemLeftContentMarginWithCheckBoxLeft}" />
+            <Setter Property="GlyphMargin" Value="{StaticResource ToolbarItemRightContentMarginWithCheckBoxLeft}" />
+        </Style>
+        
+        <!-- Glyph <> Content -->
+        <Style Selector="^[CheckBoxStyle=CheckBox][CheckBoxAlignment=After].LayoutGlyphLeftContentRight,^[CheckBoxStyle=RadioButton][CheckBoxAlignment=After].LayoutGlyphLeftContentRight">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="IsHitTestVisible" Value="True"/>
+            <Setter Property="GlyphMargin" Value="{StaticResource ToolbarItemLeftContentMarginWithCheckBoxRight}" />
+            <Setter Property="ContentMargin" Value="{StaticResource ToolbarItemRightContentMarginWithCheckBoxRight}" />
+        </Style>
+
+        <Style Selector="^[CheckBoxStyle=CheckBox][CheckBoxAlignment=After].LayoutContentLeftGlyphRight,^[CheckBoxStyle=RadioButton][CheckBoxAlignment=After].LayoutContentLeftGlyphRight">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="IsHitTestVisible" Value="True"/>
+            <Setter Property="ContentMargin" Value="{StaticResource ToolbarItemLeftContentMarginWithCheckBoxRight}" />
+            <Setter Property="GlyphMargin" Value="{StaticResource ToolbarItemRightContentMarginWithCheckBoxRight}" />
+        </Style>
+        
+        <!-- CheckItem -->
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type mxti:ToolbarItemBorderControl}" TargetType="mxti:ToolbarItemBorderControl">
+        <!-- ToolbarItemBorderControl Button -->
+        <Style Selector="^.Button/template/Border#PART_Border">
+            <Setter Property="BorderThickness" Value="{StaticResource ToolbarItemBorderThickness}" />
+            <Setter Property="CornerRadius" Value="{StaticResource ToolbarCornerRadius}" />
+            <Setter Property="Background" Value="Transparent" />
+        </Style>
+
+        <Style Selector="^.Button:main-menu/template/Border#PART_Border">
+            <Setter Property="BorderThickness" Value="{StaticResource ToolbarItemBorderThickness}" />
+            <Setter Property="CornerRadius" Value="{StaticResource ToolbarCornerRadius}" />
+            <Setter Property="Background" Value="Transparent" />
+        </Style>
+
+        <Style Selector="^.Button:menu/template/Border#PART_Border">
+            <Setter Property="BorderThickness" Value="{StaticResource ToolbarItemBorderThickness}" />
+            <Setter Property="CornerRadius" Value="{StaticResource ToolbarCornerRadius}" />
+            <Setter Property="Background" Value="Transparent" />
+        </Style>
+
+        <Style Selector="^.StaticText/template/Border#PART_Border">
+            <Setter Property="Margin" Value="1" />
+            <Setter Property="BorderThickness" Value="{StaticResource ToolbarItemBorderThickness}" />
+            <Setter Property="CornerRadius" Value="{StaticResource ToolbarCornerRadius}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource Outline/Neutral/Transparent/Medium}" />
+        </Style>
+
+        <Style Selector="^.StaticText:main-menu/template/Border#PART_Border">
+            <Setter Property="Margin" Value="1" />
+            <Setter Property="BorderThickness" Value="{StaticResource ToolbarItemBorderThickness}" />
+            <Setter Property="CornerRadius" Value="{StaticResource ToolbarCornerRadius}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource Outline/Neutral/Transparent/Medium}" />
+        </Style>
+
+        <Style Selector="^.StaticText:menu/template/Border#PART_Border">
+            <Setter Property="Margin" Value="1" />
+            <Setter Property="BorderThickness" Value="{StaticResource ToolbarItemBorderThickness}" />
+            <Setter Property="CornerRadius" Value="{StaticResource ToolbarCornerRadius}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource Outline/Neutral/Transparent/Medium}" />
+        </Style>
+
+        <!-- Border For Dock = Top | Bottom -->
+        <Style Selector="^.Button:right/template/Border#PART_Border">
+            <Setter Property="BorderThickness" Value="{StaticResource ToolbarItemBorderThicknessRight}" />
+            <Setter Property="CornerRadius" Value="{StaticResource ToolbarItemCornerRadiusRight}" />
+        </Style>
+
+        <Style Selector="^.Button:left/template/Border#PART_Border">
+            <Setter Property="BorderThickness" Value="{StaticResource ToolbarItemBorderThicknessLeft}" />
+            <Setter Property="CornerRadius" Value="{StaticResource ToolbarItemCornerRadiusLeft}" />
+        </Style>
+
+        <Style Selector="^.Button:bottom/template/Border#PART_Border">
+            <Setter Property="BorderThickness" Value="{StaticResource ToolbarItemBorderThicknessBottom}" />
+            <Setter Property="CornerRadius" Value="{StaticResource ToolbarItemCornerRadiusBottom}" />
+        </Style>
+
+        <Style Selector="^.Button:top/template/Border#PART_Border">
+            <Setter Property="BorderThickness" Value="{StaticResource ToolbarItemBorderThicknessTop}" />
+            <Setter Property="CornerRadius" Value="{StaticResource ToolbarItemCornerRadiusTop}" />
+        </Style>
+        <!-- End Border For Dock = Top | Bottom -->
+
+        <!-- Border For Dock = Left -->
+        <Style Selector="^.Button.DockLeft:right/template/Border#PART_Border">
+            <Setter Property="BorderThickness" Value="{StaticResource ToolbarItemBorderThicknessBottom}" />
+            <Setter Property="CornerRadius" Value="{StaticResource ToolbarItemCornerRadiusBottom}" />
+        </Style>
+
+        <Style Selector="^.Button.DockLeft:left/template/Border#PART_Border">
+            <Setter Property="BorderThickness" Value="{StaticResource ToolbarItemBorderThicknessTop}" />
+            <Setter Property="CornerRadius" Value="{StaticResource ToolbarItemCornerRadiusTop}" />
+        </Style>
+
+        <Style Selector="^.Button.DockLeft:bottom/template/Border#PART_Border">
+            <Setter Property="BorderThickness" Value="{StaticResource ToolbarItemBorderThicknessLeft}" />
+            <Setter Property="CornerRadius" Value="{StaticResource ToolbarItemCornerRadiusLeft}" />
+        </Style>
+
+        <Style Selector="^.Button.DockLeft:top/template/Border#PART_Border">
+            <Setter Property="BorderThickness" Value="{StaticResource ToolbarItemBorderThicknessRight}" />
+            <Setter Property="CornerRadius" Value="{StaticResource ToolbarItemCornerRadiusRight}" />
+        </Style>
+        <!-- End Border For Dock = Left -->
+
+        <!-- Border For Dock = Right -->
+        <Style Selector="^.Button.DockRight:right/template/Border#PART_Border">
+            <Setter Property="BorderThickness" Value="{StaticResource ToolbarItemBorderThicknessBottom}" />
+            <Setter Property="CornerRadius" Value="{StaticResource ToolbarItemCornerRadiusBottom}" />
+        </Style>
+
+        <Style Selector="^.Button.DockRight:left/template/Border#PART_Border">
+            <Setter Property="BorderThickness" Value="{StaticResource ToolbarItemBorderThicknessTop}" />
+            <Setter Property="CornerRadius" Value="{StaticResource ToolbarItemCornerRadiusTop}" />
+        </Style>
+
+        <Style Selector="^.Button.DockRight:bottom/template/Border#PART_Border">
+            <Setter Property="BorderThickness" Value="{StaticResource ToolbarItemBorderThicknessLeft}" />
+            <Setter Property="CornerRadius" Value="{StaticResource ToolbarItemCornerRadiusLeft}" />
+        </Style>
+
+        <Style Selector="^.Button.DockRight:top/template/Border#PART_Border">
+            <Setter Property="BorderThickness" Value="{StaticResource ToolbarItemBorderThicknessRight}" />
+            <Setter Property="CornerRadius" Value="{StaticResource ToolbarItemCornerRadiusRight}" />
+        </Style>
+        <!-- End Border For Dock = Right -->
+
+        <!-- For Toolbar -->
+        <!-- ToolbarItemBorder Hovered -->
+        <Style Selector="^.Button:pointerover /template/Border#PART_Border">
+            <Setter Property="Background" Value="{DynamicResource Fill/Neutral/Secondary/Enabled}" />
+        </Style>
+
+        <!-- ToolbarItemBorder Other Part Hovered -->
+        <Style Selector="^.Button:attached-pointerover /template/Border#PART_Border">
+            <Setter Property="Background" Value="{DynamicResource Fill/Neutral/Secondary/Enabled}" />
+            <Setter Property="Opacity" Value="0.4" />
+        </Style>
+
+        <!-- ToolbarItemBorder Pressed -->
+        <Style Selector="^.Button:pressed /template/Border#PART_Border">
+            <Setter Property="Background" Value="{DynamicResource Fill/Neutral/Secondary/Hover}" />
+        </Style>
+
+        <!-- ToolbarItemBorder Selected -->
+        <Style Selector="^.Button:selected /template/Border#PART_Border">
+            <Setter Property="Background" Value="{DynamicResource Fill/Neutral/Secondary/Enabled}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource Outline/Accent/Focus}" />
+        </Style>
+
+        <!-- ToolbarItemBorder Focus -->
+        <Style Selector="^.Button:focus /template/Border#PART_Border">
+            <Setter Property="Background" Value="{DynamicResource Fill/Neutral/Secondary/Enabled}" />
+        </Style>
+
+        <!-- ToolbarItemBorder Focus -->
+        <Style Selector="^.Button:focus-visible /template/Border#PART_Border">
+            <Setter Property="Background" Value="{DynamicResource Fill/Neutral/Secondary/Enabled}" />
+        </Style>
+
+        <!-- ToolbarCheckItemBorder -->
+        <Style Selector="^.Check:checked /template/Border#PART_Border">
+            <Setter Property="Background" Value="{DynamicResource Fill/Accent/Highlighting/Item/Enabled}" />
+        </Style>
+
+        <Style Selector="^.Check.Menu:checked /template/Border#PART_Border">
+            <Setter Property="Background" Value="Transparent" />
+        </Style>
+
+        <Style Selector="^.Check.Menu:checked:pointerover /template/Border#PART_Border">
+            <Setter Property="Background" Value="{DynamicResource Fill/Neutral/Secondary/Enabled}" />
+        </Style>
+
+        <Style Selector="^.Check.Menu:checked:pressed /template/Border#PART_Border">
+            <Setter Property="Background" Value="{DynamicResource Fill/Neutral/Secondary/Hover}" />
+        </Style>
+
+        <Style Selector="^.Button:dropdown-open /template/Border#PART_Border">
+            <Setter Property="Background" Value="{DynamicResource Fill/Neutral/Secondary/Hover}" />
+        </Style>
+
+        <Style Selector="^.Check:checked:dropdown-open /template/Border#PART_Border">
+            <Setter Property="Background" Value="{DynamicResource Fill/Accent/Highlighting/Item/Enabled}" />
+        </Style>
+
+        <Style Selector="^.Button:attached-dropdown-open /template/Border#PART_Border">
+            <Setter Property="Background" Value="{DynamicResource Fill/Neutral/Secondary/Enabled}" />
+        </Style>
+
+        <Style Selector="^.Button:checked:attached-dropdown-open /template/Border#PART_Border">
+            <Setter Property="Background" Value="{DynamicResource Fill/Accent/Highlighting/Item/Enabled}" />
+        </Style>
+
+        <Style Selector="^.Check:selected /template/Border#PART_Border">
+            <Setter Property="Background" Value="{DynamicResource Fill/Neutral/Secondary/Enabled}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource Outline/Accent/Focus}" />
+        </Style>
+        
+        <Style Selector="^.Check:checked:selected /template/Border#PART_Border">
+            <Setter Property="Background" Value="{DynamicResource Fill/Accent/Highlighting/Item/Enabled}" />
+        </Style>
+
+        <!-- ToolbarItemBorder Selected -->
+        <Style Selector="^.Editor:selected /template/Border#PART_Border">
+            <Setter Property="BorderBrush" Value="{DynamicResource Outline/Accent/Focus}" />
+        </Style>
+
+        <Style Selector="^.StaticText:selected /template/Border#PART_Border">
+            <Setter Property="BorderBrush" Value="{DynamicResource Outline/Accent/Focus}" />
+        </Style>
+
+        <!-- For Toolbar -->
+
+        <!-- For MainMenu -->
+        <!-- ToolbarItemBorder Hovered -->
+        <Style Selector="^.Button:main-menu:pointerover /template/Border#PART_Border">
+            <Setter Property="Background" Value="{DynamicResource Fill/Neutral/Secondary/Hover}" />
+        </Style>
+
+        <!-- ToolbarItemBorder Other Part Hovered -->
+        <Style Selector="^.Button:main-menu:attached-pointerover /template/Border#PART_Border">
+            <Setter Property="Background" Value="{DynamicResource Fill/Neutral/Secondary/Hover}" />
+        </Style>
+
+        <!-- ToolbarItemBorder Pressed -->
+        <Style Selector="^.Button:main-menu:pressed /template/Border#PART_Border">
+            <Setter Property="Background" Value="{DynamicResource Fill/Neutral/Secondary/Pressed}" />
+        </Style>
+
+        <!-- ToolbarItemBorder Selected -->
+        <Style Selector="^.Button:main-menu:selected /template/Border#PART_Border">
+            <Setter Property="Background" Value="{DynamicResource Fill/Neutral/Secondary/Pressed}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource Outline/Accent/Focus}" />
+        </Style>
+
+        <!-- ToolbarItemBorder Focus -->
+        <Style Selector="^.Button:main-menu:focus /template/Border#PART_Border">
+            <Setter Property="Background" Value="{DynamicResource Fill/Neutral/Secondary/Hover}" />
+        </Style>
+
+        <!-- ToolbarItemBorder Focus -->
+        <Style Selector="^.Button:main-menu:focus-visible /template/Border#PART_Border">
+            <Setter Property="Background" Value="{DynamicResource Fill/Neutral/Secondary/Hover}" />
+        </Style>
+
+        <!-- ToolbarCheckItemBorder -->
+        <Style Selector="^.Check:main-menu:checked /template/Border#PART_Border">
+            <Setter Property="Background" Value="{DynamicResource Fill/Accent/Highlighting/Item/Hover}" />
+        </Style>
+
+        <Style Selector="^.Button:main-menu:dropdown-open /template/Border#PART_Border">
+            <Setter Property="Background" Value="{DynamicResource Fill/Neutral/Secondary/Pressed}" />
+        </Style>
+
+        <Style Selector="^.Check:main-menu:checked:dropdown-open /template/Border#PART_Border">
+            <Setter Property="Background" Value="{DynamicResource Fill/Accent/Highlighting/Item/Hover}" />
+        </Style>
+
+        <Style Selector="^.Button:main-menu:attached-dropdown-open /template/Border#PART_Border">
+            <Setter Property="Background" Value="{DynamicResource Fill/Neutral/Secondary/Hover}" />
+            <Setter Property="Opacity" Value="0.8" />
+        </Style>
+
+        <Style Selector="^.Check:main-menu:checked:attached-dropdown-open /template/Border#PART_Border">
+            <Setter Property="Background" Value="{DynamicResource Fill/Accent/Highlighting/Item/Enabled}" />
+            <Setter Property="Opacity" Value="0.8" />
+        </Style>
+
+        <Style Selector="^.Check:main-menu:selected /template/Border#PART_Border">
+            <Setter Property="Background" Value="{DynamicResource Fill/Neutral/Secondary/Hover}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource Outline/Accent/Focus}" />
+        </Style>
+        <!-- For MainMenu -->
+
+        <!-- ButtonItem -->
+        <Style Selector="^.Button">
+            <Setter Property="Template" Value="{DynamicResource MxToolbarButtonItemBorderTemplate}" />
+        </Style>
+
+        <Style Selector="^.Menu">
+            <Setter Property="Template" Value="{DynamicResource MxToolbarButtonItemInMenuBorderTemplate}" />
+        </Style>
+        <!-- End ButtonItem -->
+
+        <!-- TextItem -->
+        <Style Selector="^.StaticText">
+            <Setter Property="Template" Value="{DynamicResource MxToolbarButtonItemBorderTemplate}" />
+        </Style>
+
+        <Style Selector="^.Menu.StaticText">
+            <Setter Property="Template" Value="{DynamicResource MxToolbarButtonItemInMenuBorderTemplate}" />
+        </Style>
+        <!-- End TextItem -->
+        
+        <!-- ApplicationButton -->
+        <Style Selector="^.RibbonApplicationButton/template/Border#PART_Border">
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="CornerRadius" Value="3" />
+        </Style>
+
+        <Style Selector="^.RibbonApplicationButton:pointerover/template/Border#PART_Border">
+            <Setter Property="Background" Value="{DynamicResource Fill/Neutral/Secondary/Enabled}" />
+        </Style>
+
+        <Style Selector="^.RibbonApplicationButton:pressed/template/Border#PART_Border">
+            <Setter Property="Background" Value="{DynamicResource Fill/Neutral/Secondary/Hover}" />
+        </Style>
+        
+        <!-- RibbonPageGroupHeaderButton -->
+        <Style Selector="^.RibbonPageGroupHeaderButton/template/Border#PART_Border">
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="CornerRadius" Value="3" />
+        </Style>
+
+        <Style Selector="^.RibbonPageGroupHeaderButton:pointerover/template/Border#PART_Border">
+            <Setter Property="Background" Value="{DynamicResource Fill/Neutral/Secondary/Enabled}" />
+        </Style>
+
+        <Style Selector="^.RibbonPageGroupHeaderButton:pressed/template/Border#PART_Border">
+            <Setter Property="Background" Value="{DynamicResource Fill/Neutral/Secondary/Hover}" />
+        </Style>
+        
+        <!-- RibbonPanelButton -->
+        <Style Selector="^.RibbonPanelDropDownButton/template/Border#PART_Border">
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="CornerRadius" Value="3" />
+        </Style>
+
+        <Style Selector="^.RibbonPanelDropDownButton:pointerover/template/Border#PART_Border">
+            <Setter Property="Background" Value="{DynamicResource Fill/Neutral/Secondary/Enabled}" />
+        </Style>
+
+        <Style Selector="^.RibbonPanelDropDownButton:pressed/template/Border#PART_Border">
+            <Setter Property="Background" Value="{DynamicResource Fill/Neutral/Secondary/Hover}" />
+        </Style>
+    </ControlTheme>
+
+    <!-- DropDownArrow -->
+    <ControlTheme x:Key="{x:Type mxti:ToolbarItemArrowControl}" TargetType="mxti:ToolbarItemArrowControl">
+        <Setter Property="IsHitTestVisible" Value="False" />
+        <Setter Property="Foreground" Value="{DynamicResource Icons/Outline/Gray}" />
+        <Setter Property="Template" Value="{DynamicResource MxToolbarItemDropDownArrowTemplate}" />
+        
+        <!-- DropDownArrow Pressed State -->
+        <Style Selector="^:pressed">
+            <Setter Property="Opacity" Value="0.6" />
+        </Style>
+
+        <Style Selector="^:pressed.DockLeft">
+            <Setter Property="Opacity" Value="0.6" />
+        </Style>
+
+        <Style Selector="^:pressed.DockRight">
+            <Setter Property="Opacity" Value="0.6" />
+        </Style>
+
+        <Style Selector="^:pressed.InMenu">
+            <Setter Property="IsHitTestVisible" Value="False" />
+            <Setter Property="Foreground" Value="{DynamicResource Graphics/Neutral/Primary}" />
+            <Setter Property="Template" Value="{DynamicResource MxToolbarItemDropDownArrowInMenuTemplate}" />
+        </Style>
+
+        <!-- DropDownArrow Disabled State -->
+        <Style Selector="^:disabled">
+            <Setter Property="IsHitTestVisible" Value="False" />
+            <Setter Property="Foreground" Value="{DynamicResource Graphics/Neutral/Disabled}" />
+            <Setter Property="Template" Value="{DynamicResource MxToolbarItemDropDownArrowTemplateDisabled}" />
+        </Style>
+
+        <Style Selector="^.DockLeft:disabled">
+            <Setter Property="IsHitTestVisible" Value="False" />
+            <Setter Property="Foreground" Value="{DynamicResource Graphics/Neutral/Disabled}" />
+            <Setter Property="Template" Value="{DynamicResource MxToolbarItemDropDownArrowTemplateLeftDisabled}" />
+        </Style>
+
+        <Style Selector="^.DockRight:disabled">
+            <Setter Property="IsHitTestVisible" Value="False" />
+            <Setter Property="Foreground" Value="{DynamicResource Graphics/Neutral/Disabled}" />
+            <Setter Property="Template" Value="{DynamicResource MxToolbarItemDropDownArrowTemplateRightDisabled}" />
+        </Style>
+
+        <Style Selector="^.InMenu:disabled">
+            <Setter Property="IsHitTestVisible" Value="False" />
+            <Setter Property="Foreground" Value="{DynamicResource Graphics/Neutral/Disabled}" />
+            <Setter Property="Template" Value="{DynamicResource MxToolbarItemDropDownArrowInMenuTemplateDisabled}" />
+        </Style>
+        <!-- End -->
+
+        <Style Selector="^.DockLeft">
+            <Setter Property="IsHitTestVisible" Value="False" />
+            <Setter Property="Foreground" Value="{DynamicResource Icons/Outline/Gray}" />
+            <Setter Property="Template" Value="{DynamicResource MxToolbarItemDropDownArrowTemplateLeft}" />
+        </Style>
+
+        <Style Selector="^.DockRight">
+            <Setter Property="IsHitTestVisible" Value="False" />
+            <Setter Property="Foreground" Value="{DynamicResource Icons/Outline/Gray}" />
+            <Setter Property="Template" Value="{DynamicResource MxToolbarItemDropDownArrowTemplateRight}" />
+        </Style>
+
+        <Style Selector="^.InMenu">
+            <Setter Property="IsHitTestVisible" Value="False" />
+            <Setter Property="Foreground" Value="{DynamicResource Icons/Outline/Gray}" />
+            <Setter Property="Template" Value="{DynamicResource MxToolbarItemDropDownArrowInMenuTemplate}" />
+        </Style>
+
+        <Style Selector="^:disabled">
+            <Setter Property="Foreground" Value="{DynamicResource Text/Neutral/Disabled}" />
+        </Style>
+    </ControlTheme>
+    <!-- End DropDownArrow -->
+
+    <ControlTheme x:Key="{x:Type mxti:ToolbarItemGlyphDecorator}" TargetType="mxti:ToolbarItemGlyphDecorator">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Template" Value="{DynamicResource MxToolbarItemGlyphDecoratorTemplate}" />
+
+        <Style Selector="^:checked">
+            <Setter Property="Background" Value="{DynamicResource Fill/Neutral/Tertiary}" />
+            <Setter Property="Template" Value="{DynamicResource MxToolbarItemGlyphDecoratorTemplate}" />
+        </Style>
+
+        <Style Selector="^:checked:disabled">
+            <Setter Property="Background" Value="{DynamicResource Fill/Neutral/Tertiary}" />
+            <Setter Property="Template" Value="{DynamicResource MxToolbarItemGlyphDecoratorTemplate}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type mxti:ToolbarItemDragControl}" TargetType="mxti:ToolbarItemDragControl">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Border x:Name="PART_Border">
+                        <Grid ColumnDefinitions="Auto, Auto, Auto">
+                            <Image Width="16" Height="16" Source="{TemplateBinding Glyph}" Margin="0,0,4,0"
+                                   VerticalAlignment="Center"
+                                   IsVisible="{TemplateBinding Glyph, Converter={x:Static ObjectConverters.IsNotNull}}" />
+                            <TextBlock Grid.Column="1"
+                                       Margin="0,0,20,0"
+                                       VerticalAlignment="Center"
+                                       Text="{TemplateBinding Header}"
+                                       FontSize="{StaticResource ToolbarFontSize}"
+                                       Foreground="{DynamicResource Text/Neutral/Secondary}" />
+                            <Image Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="4"
+                                   Width="16" Height="16" Source="{TemplateBinding StateGlyph}" />
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <Style Selector="^/template/Border#PART_Border">
+            <Setter Property="IsHitTestVisible" Value="False" />
+            <Setter Property="Background" Value="{DynamicResource Fill/Neutral/Primary/Enabled}" />
+            <Setter Property="Padding" Value="{StaticResource ToolbarItemDragPopupPadding}" />
+            <Setter Property="CornerRadius" Value="{StaticResource ToolbarCornerRadius}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource Outline/Neutral/On Tertiary/Strong}" />
+            <Setter Property="BorderThickness" Value="1" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type mxti:DropTargetIndicatorControl}" TargetType="mxti:DropTargetIndicatorControl">
+        <Setter Property="IsHitTestVisible" Value="False" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Grid ColumnDefinitions="Auto, *, Auto">
+                        <Rectangle Width="1" Height="5" Fill="{DynamicResource Icons/Outline/Gray}" />
+                        <Rectangle Grid.Column="1" Height="1" Fill="{DynamicResource Icons/Outline/Gray}"
+                                   Margin="0,2,0,2" />
+                        <Rectangle Grid.Column="2" Width="1" Height="5" Fill="{DynamicResource Icons/Outline/Gray}" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <Style Selector="^:vertical">
+            <Setter Property="IsHitTestVisible" Value="False" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Grid RowDefinitions="Auto, *, Auto">
+                            <Rectangle Height="1" Width="5" Fill="{DynamicResource Icons/Outline/Gray}" />
+                            <Rectangle Grid.Row="1" Width="1" Fill="{DynamicResource Icons/Outline/Gray}"
+                                       Margin="2,0,2,0" />
+                            <Rectangle Grid.Row="2" Height="1" Width="5" Fill="{DynamicResource Icons/Outline/Gray}" />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type mxti:ToolbarItemContentControl}" TargetType="mxti:ToolbarItemContentControl">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <ContentPresenter Content="{TemplateBinding Content}"
+                                  ContentTemplate="{TemplateBinding ContentTemplate}"
+                                  RecognizesAccessKey="{TemplateBinding RecognizesAccessKey}"/>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^[RecognizesAccessKey=False]">
+            <Setter Property="ContentTemplate">
+                <DataTemplate>
+                    <TextBlock Text="{Binding }"/>
+                </DataTemplate>
+            </Setter>
+        </Style>
+        
+        <Style Selector="^[RecognizesAccessKey=True]">
+            <Setter Property="ContentTemplate">
+                <DataTemplate>
+                    <AccessText Text="{Binding }"/>
+                </DataTemplate>
+            </Setter>
+        </Style>
+        
+        <Style Selector="^.Custom">
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <ContentPresenter Content="{TemplateBinding Content}"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}" />
+                </ControlTemplate>
+            </Setter>
+        </Style>
+
+        <Style Selector="^.RotateClockwice">
+            <Setter Property="RenderTransformOrigin" Value="0,0" />
+            <Setter Property="RenderTransform">
+                <Setter.Value>
+                    <RotateTransform Angle="90" />
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style Selector="^.RotateCounterClockwice">
+            <Setter Property="RenderTransformOrigin" Value="0,0" />
+            <Setter Property="RenderTransform">
+                <Setter.Value>
+                    <RotateTransform Angle="-90" />
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style Selector="^.ItemShortcut">
+            <Setter Property="IsHitTestVisible" Value="False" />
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <ContentPresenter Content="{TemplateBinding Content}"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}" />
+                </ControlTemplate>
+            </Setter>
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type mxt:ToolbarItemImage}" TargetType="mxt:ToolbarItemImage">
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity" Value="0.4" />
+        </Style>
+    </ControlTheme>
+
+    <!-- Toolbar Items -->
+    <ControlTheme x:Key="ToolbarItemBase" TargetType="mxt:ToolbarItem">
+        <Setter Property="FontSize" Value="{StaticResource ToolbarFontSize}" />
+        <Setter Property="Foreground" Value="{DynamicResource Text/Neutral/Secondary}" />
+        <Setter Property="FocusAdorner" Value="{x:Null}" />
+
+        <Style Selector="^:pressed">
+            <Setter Property="Opacity" Value="0.8" />
+        </Style>
+
+        <Style Selector="^:dropdown-pressed">
+            <Setter Property="Opacity" Value="0.8" />
+        </Style>
+
+        <Style Selector="^:dropdown-open">
+            <Setter Property="Opacity" Value="0.8" />
+        </Style>
+
+        <Style Selector="^:pointerover" />
+
+        <Style Selector="^:dropdown-pointerover" />
+
+        <Style Selector="^:selected" />
+
+        <Style Selector="^:menu">
+            <Setter Property="Foreground" Value="{DynamicResource Text/Neutral/Primary}" />
+        </Style>
+        
+        <Style Selector="^:disabled">
+            <Setter Property="Foreground" Value="{DynamicResource Text/Neutral/Disabled}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type mxt:ToolbarButtonItem}" TargetType="mxt:ToolbarButtonItem" BasedOn="{StaticResource ToolbarItemBase}">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <mxti:ToolbarItemLayoutPanel x:Name="PART_LayoutPanel" Classes="Button" />
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:menu">
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <mxti:ToolbarItemLayoutPanel x:Name="PART_LayoutPanel" Classes="Button Menu" />
+                </ControlTemplate>
+            </Setter>
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type mxti:ToolbarCustomizationButton}" TargetType="mxti:ToolbarCustomizationButton" BasedOn="{StaticResource ToolbarItemBase}">
+        <Setter Property="MinWidth" Value="16" />
+        <Setter Property="MinHeight" Value="16" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <mxti:ToolbarItemLayoutPanel x:Name="PART_LayoutPanel" Classes="Button"
+                                             GlyphTemplate="{DynamicResource MxToolbarCustomizationGlyphTemplate}" />
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^.vertical">
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <mxti:ToolbarItemLayoutPanel x:Name="PART_LayoutPanel" Classes="Button"
+                                                 GlyphTemplate="{DynamicResource MxToolbarCustomizationGlyphTemplate}" />
+                </ControlTemplate>
+            </Setter>
+        </Style>
+        
+        <Style Selector="^/template/Border#PART_Border">
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="Padding" Value="{StaticResource ToolbarItemGlyphMargin}" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="CornerRadius" Value="{StaticResource ToolbarItemCornerRadius}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type mxt:ToolbarMenuItem}" TargetType="mxt:ToolbarMenuItem" BasedOn="{StaticResource ToolbarItemBase}">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <mxti:ToolbarItemLayoutPanel x:Name="PART_LayoutPanel" Classes="Button SubMenu" />
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:menu">
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <mxti:ToolbarItemLayoutPanel x:Name="PART_LayoutPanel" Classes="Button SubMenu Menu" />
+                </ControlTemplate>
+            </Setter>
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type mxt:ToolbarTextItem}" TargetType="mxt:ToolbarTextItem" BasedOn="{StaticResource ToolbarItemBase}">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <mxti:ToolbarItemLayoutPanel x:Name="PART_LayoutPanel" Classes="StaticText" />
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:menu">
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <mxti:ToolbarItemLayoutPanel x:Name="PART_LayoutPanel" Classes="StaticText Menu" />
+                </ControlTemplate>
+            </Setter>
+        </Style>
+    </ControlTheme>
+    
+    <ControlTheme x:Key="{x:Type mxt:ToolbarCheckItem}" TargetType="mxt:ToolbarCheckItem" BasedOn="{StaticResource ToolbarItemBase}">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <mxti:ToolbarCheckItemLayoutPanel x:Name="PART_LayoutPanel" Classes="Button Check" />
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:menu">
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <mxti:ToolbarCheckItemLayoutPanel x:Name="PART_LayoutPanel" Classes="Button Check Menu" />
+                </ControlTemplate>
+            </Setter>
+        </Style>
+    </ControlTheme>
+    
+    <ControlTheme x:Key="{x:Type mxt:ToolbarEditorItem}" TargetType="mxt:ToolbarEditorItem" BasedOn="{StaticResource ToolbarItemBase}">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <mxti:ToolbarItemLayoutPanel x:Name="PART_LayoutPanel" Classes="Editor" />
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:menu">
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <mxti:ToolbarItemLayoutPanel x:Name="PART_LayoutPanel" Classes="Editor Menu"/>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="ToolbarItemGroupBase" TargetType="mxt:ToolbarItemGroup">
+        <Setter Property="FontSize" Value="{StaticResource ToolbarFontSize}" />
+        <Setter Property="Foreground" Value="{DynamicResource Text/Neutral/Secondary}" />
+        <Setter Property="FocusAdorner" Value="{x:Null}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <ContentPresenter x:Name="PART_GroupContent" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <Style Selector="^:menu">
+            <Setter Property="Foreground" Value="{DynamicResource Text/Neutral/Primary}" />
+        </Style>
+    </ControlTheme>
+    <ControlTheme x:Key="{x:Type mxt:ToolbarItemGroup}" TargetType="mxt:ToolbarItemGroup" BasedOn="{StaticResource ToolbarItemGroupBase}" />
+    <ControlTheme x:Key="{x:Type mxt:ToolbarCheckItemGroup}" TargetType="mxt:ToolbarCheckItemGroup" BasedOn="{StaticResource ToolbarItemGroupBase}" />
+    <!-- End ToolbarItems -->
+
+    <ControlTheme x:Key="ToolbarItemGroupItemsControlBase" TargetType="mxti:ToolbarItemGroupItemsControl">
+        <Setter Property="ItemsPanel">
+            <ItemsPanelTemplate>
+                <mxti:ToolbarItemGroupLayoutPanel />
+            </ItemsPanelTemplate>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <ItemsPresenter ItemsPanel="{TemplateBinding ItemsPanel}" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </ControlTheme>
+    <ControlTheme x:Key="{x:Type mxti:ToolbarItemGroupItemsControl}" TargetType="mxti:ToolbarItemGroupItemsControl" BasedOn="{StaticResource ToolbarItemGroupItemsControlBase}" />
+    <ControlTheme x:Key="{x:Type mxti:ToolbarCheckItemGroupItemsControl}" TargetType="mxti:ToolbarCheckItemGroupItemsControl" BasedOn="{StaticResource ToolbarItemGroupItemsControlBase}" />
+
+    <ControlTheme x:Key="{x:Type mxt:ToolbarContainerControl}" TargetType="mxt:ToolbarContainerControl">
+        <Setter Property="Background" Value="{DynamicResource Fill/Neutral/Primary/Enabled}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource Outline/Neutral/On Primary/Medium}" />
+        <Setter Property="BorderThickness" Value="{StaticResource ToolbarContainerBorderThicknessBottom}" />
+        <Setter Property="Padding" Value="{StaticResource ToolbarContainerPaddingTop}" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border x:Name="ToolbarContainerBorder">
+                    <ItemsPresenter ItemsPanel="{TemplateBinding ItemsPanel}"/>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+        <Setter Property="ItemsPanel">
+            <ItemsPanelTemplate>
+                <mxt:ToolbarContainerLayoutPanel />
+            </ItemsPanelTemplate>
+        </Setter>
+
+        <Style Selector="^/template/Border#ToolbarContainerBorder">
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="Background" Value="{TemplateBinding Background}" />
+            <Setter Property="BorderBrush" Value="{TemplateBinding BorderBrush}" />
+            <Setter Property="BorderThickness" Value="{TemplateBinding BorderThickness}" />
+            <Setter Property="CornerRadius" Value="{TemplateBinding CornerRadius}" />
+            <Setter Property="Padding" Value="{TemplateBinding Padding}" />
+        </Style>
+
+        <Style Selector="^:left">
+            <Setter Property="BorderThickness" Value="{StaticResource ToolbarContainerBorderThicknessRight}" />
+            <Setter Property="Padding" Value="{StaticResource ToolbarContainerPaddingLeft}" />
+        </Style>
+
+        <Style Selector="^:right">
+            <Setter Property="BorderThickness" Value="{StaticResource ToolbarContainerBorderThicknessLeft}" />
+            <Setter Property="Padding" Value="{StaticResource ToolbarContainerPaddingRight}" />
+        </Style>
+
+        <Style Selector="^:bottom">
+            <Setter Property="BorderThickness" Value="{StaticResource ToolbarContainerBorderThicknessTop}" />
+            <Setter Property="Padding" Value="{StaticResource ToolbarContainerPaddingBottom}" />
+        </Style>
+
+        <Style Selector="^:empty">
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Padding" Value="0" />
+        </Style>
+
+        <Style Selector="^:noborder">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0" />
+        </Style>
+
+        <Style Selector="^.Context">
+            <Setter Property="Background" Value="{DynamicResource Fill/Neutral/Primary/Enabled}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource Fill/Neutral/Primary/Enabled}" />
+        </Style>
+
+        <Style Selector="^:standalone">
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Padding" Value="{StaticResource ToolbarContainerPadding}" />
+            <Setter Property="CornerRadius" Value="{StaticResource ToolbarCornerRadius}" />
+        </Style>
+
+        <Style Selector="^:floating">
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Padding" Value="{StaticResource ToolbarContainerPaddingFloating}" />
+            <Setter Property="CornerRadius" Value="{StaticResource ToolbarCornerRadiusBottom}" />
+        </Style>
+
+        <Style Selector="^:floating:not(:no-shadow)">
+            <Setter Property="CornerRadius" Value="{StaticResource ToolbarCornerRadiusBottom}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type mxt:ToolbarControlDragThumb}" TargetType="mxt:ToolbarControlDragThumb">
+        <Setter Property="Template" Value="{DynamicResource MxToolbarDragThumbTemplate}" />
+        <Setter Property="VerticalAlignment" Value="Stretch" />
+        <Setter Property="Cursor" Value="SizeAll" />
+
+        <Style Selector="^.vertical">
+            <Setter Property="Template" Value="{DynamicResource MxToolbarDragThumbTemplateVertical}" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="Cursor" Value="SizeAll" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type mxt:Toolbar}" TargetType="mxt:Toolbar">
+        <Setter Property="FocusAdorner" Value="{x:Null}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <ContentControl x:Name="PART_Border">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <mxt:ToolbarControlDragThumb x:Name="PART_DragThumb" Grid.Column="0" />
+                            <ContentPresenter Grid.Column="1" Name="PART_ItemsPresenter">
+                                <ContentPresenter.Styles>
+                                    <Style Selector=":is(mxe|BaseEditor)">
+                                        <Setter Property="MinHeight" Value="26" />
+                                    </Style>
+                                    <Style
+                                        Selector=":is(mxe|TextEditor):activeMode:focus-within,
+															:is(mxe|PopupEditor):activeMode:focus-in-popup">
+                                        <Setter Property="BorderBrush" Value="{DynamicResource Outline/Accent/Focus}" />
+                                    </Style>
+                                </ContentPresenter.Styles>
+                            </ContentPresenter>
+                            <mxti:ToolbarCustomizationButton x:Name="PART_CustomizationButton"
+                                                             HorizontalAlignment="Right"
+                                                             Grid.Column="2" />
+                        </Grid>
+                    </ContentControl>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        
+        <Style Selector="^:floating/template/ContentControl#PART_Border">
+            <Setter Property="Template" Value="{DynamicResource MxToolbarBorderTemplateFloating}" />
+        </Style>
+
+        <Style Selector="^:vertical/template/ContentControl#PART_Border">
+            <Setter Property="Template" Value="{DynamicResource MxToolbarBorderTemplateVertical}" />
+        </Style>
+
+        <Style Selector="^:noborder/template/ContentControl#PART_Border">
+            <Setter Property="Template" Value="{DynamicResource MxToolbarBorderTemplateNoBorder}" />
+        </Style>
+
+        <Style Selector="^/template/ContentControl#PART_Border">
+            <Setter Property="Template" Value="{DynamicResource MxToolbarBorderTemplate}" />
+        </Style>
+        
+        <Style Selector="^:floating">
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <ContentControl x:Name="PART_Border">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <ContentPresenter x:Name="PART_ItemsPresenter" />
+                            <mxti:ToolbarCustomizationButton x:Name="PART_CustomizationButton" HorizontalAlignment="Right"
+                                                             Grid.Column="1" />
+                        </Grid>
+                    </ContentControl>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+
+        <Style Selector="^:vertical">
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <ContentControl x:Name="PART_Border">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <mxt:ToolbarControlDragThumb x:Name="PART_DragThumb" Classes="vertical" Grid.Row="0" />
+                            <ContentPresenter Grid.Row="1" Name="PART_ItemsPresenter" />
+                            <mxti:ToolbarCustomizationButton x:Name="PART_CustomizationButton" VerticalAlignment="Bottom"
+                                                             Classes="vertical"
+                                                             Grid.Row="2" />
+                        </Grid>
+                    </ContentControl>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+    </ControlTheme>
+    
+    <ControlTheme x:Key="{x:Type mxti:ToolbarControl}" TargetType="mxti:ToolbarControl">
+        <Setter Property="MinWidth" Value="6" />
+        <Setter Property="MinHeight" Value="6" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Grid x:Name="PART_AdornerLayer">
+                        <ItemsPresenter ItemsPanel="{TemplateBinding ItemsPanel}" />
+                        <mxti:DropTargetIndicatorPanel>
+                            <mxti:DropTargetIndicatorControl x:Name="PART_DropIndicator" Orientation="Vertical"
+                                                             IsVisible="False" />
+                        </mxti:DropTargetIndicatorPanel>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="ItemsPanel">
+            <ItemsPanelTemplate>
+                <mxt:ToolbarLayoutPanel />
+            </ItemsPanelTemplate>
+        </Setter>
+        
+        <Style Selector="^:left,^:right">
+            <Setter Property="MinWidth" Value="6" />
+            <Setter Property="MinHeight" Value="6" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Grid x:Name="PART_AdornerLayer">
+                            <ItemsPresenter ItemsPanel="{TemplateBinding ItemsPanel}" />
+                            <mxti:DropTargetIndicatorPanel>
+                                <mxti:DropTargetIndicatorControl x:Name="PART_DropIndicator" Orientation="Horizontal"
+                                                                 IsVisible="False" />
+                            </mxti:DropTargetIndicatorPanel>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="ItemsPanel">
+                <ItemsPanelTemplate>
+                    <mxt:ToolbarLayoutPanel />
+                </ItemsPanelTemplate>
+            </Setter>
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type mxti:FloatingToolbarCloseButton}" TargetType="mxti:FloatingToolbarCloseButton">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border x:Name="PART_Border">
+                    <Canvas Width="12" Height="12">
+                        <Line StartPoint="2,2" EndPoint="10, 10" Stroke="{DynamicResource Icons/Outline/Gray}"
+                              StrokeThickness="1" />
+                        <Line StartPoint="2,10" EndPoint="10, 2" Stroke="{DynamicResource Icons/Outline/Gray}"
+                              StrokeThickness="1" />
+                    </Canvas>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+        
+        <Style Selector="^/template/Border#PART_Border">
+            <Setter Property="Margin" Value="2" />
+            <Setter Property="Padding" Value="{StaticResource ToolbarItemGlyphMargin}" />
+            <Setter Property="CornerRadius" Value="{StaticResource ToolbarItemCornerRadius}" />
+            <Setter Property="Background" Value="Transparent" />
+        </Style>
+
+        <Style Selector="^:pointerover/template/Border#PART_Border">
+            <Setter Property="Background" Value="{DynamicResource Fill/Neutral/Secondary/Enabled}" />
+        </Style>
+
+        <Style Selector="^:selected/template/Border#PART_Border">
+            <Setter Property="Background" Value="{DynamicResource Fill/Neutral/Secondary/Enabled}" />
+        </Style>
+
+        <Style Selector="^:pressed/template/Border#PART_Border">
+            <Setter Property="Background" Value="{DynamicResource Fill/Neutral/Secondary/Hover}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type mxti:ScrollButton}" TargetType="mxti:ScrollButton">
+        <Style Selector="^/template/Border#PART_Border">
+            <Setter Property="Padding" Value="{StaticResource PopupMenuScrollButtonPadding}" />
+            <Setter Property="Background" Value="{DynamicResource Fill/Neutral/Primary/Enabled}" />
+        </Style>
+
+        <Style Selector="^:pointerover/template/Border#PART_Border">
+            <Setter Property="Background" Value="{DynamicResource Fill/Neutral/Secondary/Hover}" />
+        </Style>
+
+        <Style Selector="^:pointerover/template/Path#PART_Arrow">
+            <Setter Property="Fill" Value="{DynamicResource Text/Neutral/Secondary}" />
+        </Style>
+
+        <Style Selector="^#PART_ScrollUpButton/template/Border#PART_Border">
+            <Setter Property="CornerRadius" Value="{StaticResource ToolbarCornerRadiusTop}" />
+        </Style>
+
+        <Style Selector="^.WithHeader#PART_ScrollUpButton/template/Border#PART_Border">
+            <Setter Property="CornerRadius" Value="0,0,0,0" />
+        </Style>
+
+        <Style Selector="^#PART_ScrollDownButton/template/Border#PART_Border">
+            <Setter Property="CornerRadius" Value="{StaticResource ToolbarCornerRadiusBottom}" />
+        </Style>
+
+        <Style Selector="^#PART_ScrollUpButton">
+            <Setter Property="Focusable" Value="False" />
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border x:Name="PART_Border">
+                        <Canvas Width="6" Height="3">
+                            <Path x:Name="PART_Arrow" Data="M0,3 L3,0 L6,3 L0,3"
+                                  Stroke="{DynamicResource Text/Neutral/Secondary}" />
+                        </Canvas>
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+
+        <Style Selector="^#PART_ScrollDownButton">
+            <Setter Property="Focusable" Value="False" />
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border x:Name="PART_Border">
+                        <Canvas Width="6" Height="3">
+                            <Path x:Name="PART_Arrow" Data="M0,0 L6,0 L3,3 L0,0"
+                                  Stroke="{DynamicResource Text/Neutral/Secondary}" />
+                        </Canvas>
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+    </ControlTheme>
+    
+    <ControlTheme x:Key="{x:Type mxti:PopupMenuControl}" TargetType="mxti:PopupMenuControl">
+        <Setter Property="ItemsPanel">
+            <Setter.Value>
+                <ItemsPanelTemplate>
+                    <mxti:PopupMenuItemsLayoutPanel />
+                </ItemsPanelTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Panel>
+                        <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
+                        <mxti:DropTargetIndicatorPanel Margin="6,0,6,0">
+                            <mxti:DropTargetIndicatorControl x:Name="PART_DropIndicator" Orientation="Horizontal" />
+                        </mxti:DropTargetIndicatorPanel>
+                    </Panel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        
+        <Style Selector="^/template/ItemsPresenter#PART_ItemsPresenter">
+            <Setter Property="Margin" Value="1" />
+        </Style>
+    </ControlTheme>
+    
+    <ControlTheme x:Key="{x:Type mxti:PopupMenuPopup}" TargetType="mxti:PopupMenuPopup">
+        <Setter Property="HorizontalOffset" Value="-10" />
+        <Setter Property="VerticalOffset" Value="-8" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="PopupMenuMenuStrip" TargetType="TemplatedControl">
+        <Style Selector="^.MxMenuStrip">
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Border Background="Transparent" CornerRadius="{StaticResource ToolbarCornerRadiusLeft}" HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch" />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </ControlTheme>
+    <ControlTheme x:Key="{x:Type mxt:PopupMenu}" TargetType="mxt:PopupMenu">
+        <Setter Property="UseLayoutRounding" Value="True" />
+        <Setter Property="ShadowOffset" Value="10, 8" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <controls:ShadowControl x:Name="PART_PopupShadow">
+                        <controls:ShadowControl.Styles>
+                            <Style Selector=":is(mxe|BaseEditor)">
+                                <Setter Property="MinHeight" Value="24" />
+                                <Setter Property="Padding" Value="{StaticResource EditorContentPaddingInPopupMenu}" />
+                            </Style>
+                            <Style
+                                Selector=":is(mxe|TextEditor):activeMode:focus-within,
+															:is(mxe|PopupEditor):activeMode:focus-in-popup">
+                                <Setter Property="BorderBrush" Value="{DynamicResource Outline/Accent/Focus}" />
+                            </Style>
+                        </controls:ShadowControl.Styles>
+                        <Border x:Name="PART_Border">
+                            <Grid x:Name="PART_PopupInnerBorder" RowDefinitions="Auto, Auto, *, Auto">
+                                <TemplatedControl x:Name="PART_MenuStrip" Classes="MxMenuStrip" Grid.Row="1"
+                                                  Grid.RowSpan="3" IsVisible="{TemplateBinding ShowIconStrip}"
+                                                  Theme="{StaticResource PopupMenuMenuStrip}"/>
+                                <mxti:PopupMenuHeaderControl x:Name="PART_MenuHeader" Classes="MxMenuHeader"
+                                                             IsVisible="{TemplateBinding ShowHeader}"
+                                                             Content="{TemplateBinding Header}" />
+                                <ContentPresenter x:Name="PART_ItemsPresenter"
+                                                  Grid.Row="1"
+                                                  Grid.RowSpan="3" />
+                                <mxti:ScrollButton IsVisible="False" Grid.Row="1" x:Name="PART_ScrollUpButton" />
+                                <mxti:ScrollButton IsVisible="False" Grid.Row="3" x:Name="PART_ScrollDownButton" />
+                            </Grid>
+                        </Border>
+                    </controls:ShadowControl>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        
+        <Style Selector="^/template/ItemsPresenter">
+            <Setter Property="Margin" Value="{StaticResource PopupContentPadding}" />
+        </Style>
+        
+        <Style Selector="^/template/Border#PART_Border">
+            <Setter Property="BorderThickness" Value="{DynamicResource MxPopupMenuBorderThickness}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource Outline/Neutral/Transparent/Strong}" />
+            <Setter Property="Background" Value="{DynamicResource Fill/Neutral/Primary/Enabled}" />
+            <Setter Property="CornerRadius" Value="{StaticResource ToolbarOuterCornerRadius}" />
+        </Style>
+        
+        <Style Selector="^:no-shadow/template/Border#PART_Border">
+            <Setter Property="BorderThickness" Value="{DynamicResource MxPopupMenuBorderThickness/NoShadow}" />
+            <Setter Property="CornerRadius" Value="0" />
+        </Style>
+
+        <Style Selector="^/template/controls|ShadowControl#PART_PopupShadow">
+            <Setter Property="CornerRadius" Value="{StaticResource ToolbarCornerRadius}" />
+        </Style>
+        
+        <Style Selector="^:no-shadow">
+            <Setter Property="ShadowOffset" Value="0, 0" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type mxti:PopupContainerPopup}" TargetType="mxti:PopupContainerPopup">
+        <Setter Property="HorizontalOffset" Value="-10" />
+        <Setter Property="VerticalOffset" Value="-8" />
+    </ControlTheme>
+    
+    <ControlTheme x:Key="PopupContainerButton" TargetType="Button">
+        <Setter Property="Margin" Value="4" />
+        <Setter Property="Template" Value="{DynamicResource MxPopupContainerCloseButtonTemplate}" />
+        
+        <Style Selector="^/template/Border">
+            <Setter Property="Padding" Value="4" />
+            <Setter Property="CornerRadius" Value="{StaticResource ToolbarItemCornerRadius}" />
+            <Setter Property="Background" Value="Transparent" />
+        </Style>
+
+        <Style Selector="^/template/Border:pointerover">
+            <Setter Property="Background" Value="{DynamicResource Fill/Neutral/Secondary/Hover}" />
+        </Style>
+
+        <Style Selector="^/template/Line">
+            <Setter Property="Stroke" Value="{DynamicResource Text/Neutral/Secondary}" />
+        </Style>
+
+        <Style Selector="^/template/Line:pointerover">
+            <Setter Property="Stroke" Value="{DynamicResource Text/Neutral/Secondary}" />
+            <Setter Property="Opacity" Value="0.8" />
+        </Style>
+    </ControlTheme>
+    <ControlTheme x:Key="{x:Type mxt:PopupContainer}" TargetType="mxt:PopupContainer">
+        <Setter Property="UseLayoutRounding" Value="True" />
+        <Setter Property="ShadowOffset" Value="10, 8" />
+        <Setter Property="ShadowMargin" Value="{DynamicResource MxPopupShadowMargin}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <controls:ShadowControl x:Name="PART_PopupShadow">
+                        <Border x:Name="PART_Border">
+                            <Grid x:Name="PART_PopupInnerBorder">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <ContentPresenter Content="{TemplateBinding Child}" Grid.Row="1" />
+                                <Button x:Name="PART_CloseButton" Grid.Row="2" HorizontalAlignment="Left" Theme="{StaticResource PopupContainerButton}" />
+                                <internal:PopupContainerSizeGrip x:Name="PART_SizeGrip" Grid.Row="2" HorizontalAlignment="Right" />
+                            </Grid>
+                        </Border>
+                    </controls:ShadowControl>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        
+        <Style Selector="^/template/controls|ShadowControl#PART_PopupShadow">
+            <Setter Property="CornerRadius" Value="{StaticResource ToolbarCornerRadius}" />
+        </Style>
+
+        <Style Selector="^/template/ContentPresenter">
+            <Setter Property="Margin" Value="{StaticResource PopupContentPadding}" />
+        </Style>
+        
+        <Style Selector="^/template/Border#PART_Border">
+            <Setter Property="BorderThickness" Value="{DynamicResource MxPopupMenuBorderThickness}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource Outline/Neutral/Transparent/Strong}" />
+            <Setter Property="Background" Value="{DynamicResource Fill/Neutral/Primary/Enabled}" />
+        </Style>
+    
+        <Style Selector="^:not(:no-shadow)/template/Border#PART_Border">
+            <Setter Property="CornerRadius" Value="{StaticResource ToolbarOuterCornerRadius}" />
+        </Style>
+
+        <Style Selector="^:no-shadow">
+            <Setter Property="ShadowOffset" Value="0,0" />
+            <Setter Property="ShadowMargin" Value="0"></Setter>
+        </Style>
+    
+        <Style Selector="^:no-shadow/template/Border#PART_Border">
+            <Setter Property="BorderThickness" Value="{DynamicResource PopupContainerBorderThickness/NoShadow}"></Setter>
+        </Style>
+    </ControlTheme>
+    
+    <ControlTheme x:Key="ToolbarItemToolTipTextBlock" TargetType="TextBlock">
+        <Setter Property="TextWrapping" Value="Wrap" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        
+        <Style Selector="^.ToolbarItemToolTipTitle">
+            <Setter Property="Foreground" Value="{DynamicResource Text/Neutral/Secondary}" />
+        </Style>
+
+        <Style Selector="^.ToolbarItemToolTipText">
+            <Setter Property="Foreground" Value="{DynamicResource Text/Neutral/Tertiary}" />
+            <Setter Property="Opacity" Value="{DynamicResource ToolTipTextOpacity}" />
+        </Style>
+    </ControlTheme>
+    <ControlTheme x:Key="{x:Type mxti:ToolbarItemToolTip}" TargetType="mxti:ToolbarItemToolTip">
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="{TemplateBinding Title}" Classes="ToolbarItemToolTipTitle"
+                                   Theme="{StaticResource ToolbarItemToolTipTextBlock}" />
+                        <TextBlock Text="{TemplateBinding Text}" Classes="ToolbarItemToolTipText"
+                                   IsVisible="{TemplateBinding IsTextVisible}"
+                                   Theme="{StaticResource ToolbarItemToolTipTextBlock}"/>
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </ControlTheme>
+    <ControlTheme x:Key="{x:Type mxc:KeyTipControl}" TargetType="mxc:KeyTipControl">
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="CornerRadius" Value="2"/>
+        <Setter Property="Background" Value="{DynamicResource Text/Neutral/Secondary}"/>
+        <Setter Property="Foreground" Value="{DynamicResource Text/On Accent/Primary}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <controls:ShadowControl Classes="extrasmall" CornerRadius="{TemplateBinding CornerRadius}" x:Name="PART_Content">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding CornerRadius}">
+                            <ContentPresenter Content="{TemplateBinding Content}" Foreground="{TemplateBinding Foreground}"/>
+                        </Border>
+                    </controls:ShadowControl>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style Selector="^/template/ContentPresenter">
+            <Setter Property="Padding" Value="3"/>
+            <Setter Property="Foreground" Value="{DynamicResource Text/Neutral/Secondary}"/>
+        </Style>
+        <Style Selector="^:filtered">
+            <Setter Property="Opacity" Value="{DynamicResource KeyTipFilteredOpacity}"/>
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

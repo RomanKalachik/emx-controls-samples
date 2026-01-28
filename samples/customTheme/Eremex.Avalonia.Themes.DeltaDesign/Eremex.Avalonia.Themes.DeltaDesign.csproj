@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<OutputType>Library</OutputType>
+		<GeneratePackageOnBuild Condition="'$(Configuration)' == 'Release'">true</GeneratePackageOnBuild>
+		<RootNamespace>Eremex.AvaloniaUI.Themes.DeltaDesign</RootNamespace>
+		<AssemblyName>Eremex.Avalonia.Themes.DeltaDesign</AssemblyName>
+		<Description>A collection of themes for the Eremex Avalonia UI Controls.</Description>
+                <PackageLicenseFile>eula.txt</PackageLicenseFile>
+		<NuspecFile>Eremex.Avalonia.Themes.DeltaDesign.nuspec</NuspecFile>
+                <Nullable>enable</Nullable>
+		<TrimMode>copyused</TrimMode>
+		<BuiltInComInteropSupport>true</BuiltInComInteropSupport>
+		<Configurations>Debug;Release</Configurations>
+
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+		<DebugSymbols>true</DebugSymbols>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+		<Optimize>true</Optimize>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Avalonia" />
+		<PackageReference Include="Avalonia.Fonts.Inter" />
+		<PackageReference Include="DynamicData" />
+		<PackageReference Include="Svg.Controls.Skia.Avalonia" />
+		<PackageReference Include="SkiaSharp" />
+		<PackageReference Include="System.Resources.Extensions" />
+	</ItemGroup>
+	
+	<ItemGroup>
+	  <PackageReference Include="Eremex.Avalonia.Controls"/>
+	  <AvaloniaResource Include="**/*.axaml" />
+	  <EmbeddedResource Include="Palettes\*.css" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <AvaloniaResource Include="DeltaDesignTheme.xaml" />
+	</ItemGroup>
+</Project>
