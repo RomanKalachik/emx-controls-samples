@@ -30,7 +30,7 @@
 	</ItemGroup>
 	
 	<ItemGroup>
-	  <PackageReference Include="Eremex.Avalonia.Controls" Version="1.3.49" />
+	  <PackageReference Include="Eremex.Avalonia.Controls"/>
 	  <AvaloniaResource Include="**/*.axaml" />
 	  <EmbeddedResource Include="Palettes\*.css" />
 	</ItemGroup>
